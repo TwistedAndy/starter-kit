@@ -1,0 +1,122 @@
+#site {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.container_box {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 0;
+	position: relative;
+	width: 100%;
+}
+
+.wrapper_box {
+	display: block;
+	position: relative;
+
+	.fixed {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+
+	.main_box {
+		display: block;
+		flex-basis: auto;
+		flex-grow: 1;
+		flex-shrink: 1;
+		position: relative;
+		min-width: 0;
+		order: 1;
+	}
+
+	.sidebar_box {
+		display: block;
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 270px;
+		margin-left: 30px;
+		order: 2;
+	}
+
+	@include desktop_small {
+
+		.sidebar_box {
+			margin-left: 20px;
+		}
+
+	}
+
+	@include tablet_large {
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.main_box {
+			width: 100%;
+			order: 1;
+		}
+
+		.sidebar_box {
+			margin-left: 0;
+			width: 100%;
+			max-width: 320px;
+			order: 2;
+		}
+
+	}
+
+}
+
+.fixed {
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	max-width: $desktop_large + px;
+	margin: 0 auto;
+	padding: 0 30px;
+	z-index: 2;
+
+	.fixed {
+		padding: 0;
+	}
+
+	@include desktop_small {
+		padding: 0 20px;
+	}
+
+}
+
+%block {
+	display: block;
+	position: relative;
+	margin-bottom: 40px;
+	z-index: 1;
+
+	@include desktop_small {
+		margin-bottom: 30px;
+	}
+
+}
+
+%title {
+	display: block;
+	position: relative;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1.25;
+	margin-bottom: 20px;
+
+	@include desktop_small {
+		font-size: 28px;
+	}
+
+	@include tablet_small {
+		font-size: 24px;
+	}
+
+}

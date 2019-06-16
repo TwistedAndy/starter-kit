@@ -1,0 +1,173 @@
+/* Comment form */
+
+.comments {
+
+	@extend %block;
+
+	h3 {
+		display: block;
+		margin-bottom: 12px;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 130%;
+		color: #333333;
+	}
+
+}
+
+.comment {
+	display: block;
+	position: relative;
+
+	.comment_inner {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	& + .comment, .comment {
+		margin-top: 30px;
+	}
+
+	.comment {
+		margin-left: 30px;
+	}
+
+	&.depth-3 .comment {
+		margin-left: 0;
+	}
+
+	.comment_avatar {
+		display: block;
+		position: relative;
+		flex-grow: 0;
+		flex-shrink: 0;
+		margin-right: 20px;
+		width: 60px;
+		height: 60px;
+
+		img {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: auto;
+		}
+
+	}
+
+	.comment_body {
+		display: block;
+		position: relative;
+		flex-grow: 1;
+	}
+
+	.comment_info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.comment_author {
+		display: block;
+		font-weight: 700;
+	}
+
+	.comment_date {
+		display: block;
+		margin-left: auto;
+	}
+
+	.comment_on_moderation {
+		font-style: italic;
+		color: #990000;
+	}
+
+	.comment_buttons {
+		margin-top: 12px;
+		text-align: right;
+		font-size: 13px;
+		line-height: 130%;
+		color: #990000;
+
+		a {
+			display: inline-block;
+			padding: 3px 10px;
+			border-radius: 5px;
+			background: #aaaaaa;
+			color: #ffffff;
+			text-decoration: none;
+
+			&:hover {
+				background: #cccccc;
+			}
+
+			& + a {
+				margin-left: 5px;
+			}
+
+		}
+
+	}
+
+}
+
+
+/* Comment reply form */
+
+.comment-reply-title {
+	display: block;
+	margin-bottom: 12px;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 130%;
+	color: #333333;
+
+	a {
+		color: #953c21;
+	}
+
+	small, small a {
+		font-size: 16px;
+		color: #555555;
+		text-decoration: none;
+		text-transform: lowercase;
+	}
+
+	small a:hover {
+		text-decoration: underline;
+	}
+
+}
+
+.comment-respond {
+	max-width: 600px;
+	margin: 0 auto 30px;
+
+	p {
+		margin-bottom: 15px;
+
+		&.form-submit {
+			overflow: hidden;
+			width: 100%;
+		}
+
+	}
+
+	.logout, .login {
+		font-weight: bold;
+	}
+
+	.logout {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+	.login {
+		color: #953c21;
+	}
+
+}

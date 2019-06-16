@@ -1,1 +1,1 @@
-# html-boilerplate
+# Simple HTML and CSS boilerplate
