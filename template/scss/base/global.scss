@@ -53,8 +53,11 @@
 	}
 
 	@include tablet_large {
-		flex-wrap: wrap;
-		justify-content: center;
+		
+		.fixed {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 
 		.main_box {
 			width: 100%;
