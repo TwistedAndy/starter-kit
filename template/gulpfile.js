@@ -97,6 +97,12 @@ var options = {
 		indentType: 'tab',
 		indentWidth: 1
 	},
+	styles: [
+		'scss/*.scss',
+		'scss/base/*.scss',
+		'scss/blocks/*.scss',
+		'scss/includes/*.scss'
+	],
 	browsersync: {
 		server: {
 			baseDir: './'
@@ -171,9 +177,9 @@ gulp.task('scss_full', function() {
 
 gulp.task('watch', function() {
 
-	gulp.watch('scss/**/*.scss', gulp.series('scss_fast'));
+	gulp.watch(options.styles, gulp.parallel('scss_fast'));
 
 });
 
 
-gulp.task('default', gulp.series('watch'));
+gulp.task('default', gulp.parallel('watch'));
