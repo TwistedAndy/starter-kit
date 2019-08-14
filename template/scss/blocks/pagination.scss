@@ -1,8 +1,7 @@
 .pagination_box {
+	text-align: center;
 
 	@extend %block;
-
-	text-align: center;
 
 	span, a {
 		display: inline-block;

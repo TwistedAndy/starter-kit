@@ -1,4 +1,4 @@
-// Styles for the default WYSIWYG editor
+/* Styles for the default WordPress editor */
 
 .content_box {
 
@@ -14,10 +14,6 @@
 
 	p, & > table, & > ul, & > ol, .table_wrapper {
 		margin-bottom: $margin_content;
-	}
-
-	.table_wrapper {
-		overflow: auto;
 	}
 
 	ul, ol {
@@ -99,7 +95,7 @@
 		border: 1px solid darken($color_background, 10%);
 	}
 
-	> :last-child {
+	& > :last-child {
 		margin-bottom: 0;
 	}
 
@@ -111,20 +107,10 @@
 
 	}
 
-	@include tablet_large {
-
-		.table_wrapper {
-			display: block;
-			overflow-x: auto;
-			overflow-y: hidden;
-		}
-
-	}
-
 }
 
 
-// Styles for WordPress alignment classes
+/* WordPress default alignment classes */
 
 .content {
 
@@ -149,6 +135,10 @@
 		max-width: 100%;
 		margin: 0 auto $margin_content;
 	}
+
+	.table_wrapper {
+		overflow: auto;
+	}
 	
 	@include tablet_large {
 
@@ -159,12 +149,18 @@
 			text-align: center;
 		}
 
+		.table_wrapper {
+			display: block;
+			overflow-x: auto;
+			overflow-y: hidden;
+		}
+
 	}
 
 }
 
 
-// Styles for blockquotes
+/* Blockquotes */
 
 .content {
 
@@ -184,7 +180,7 @@
 }
 
 
-// Styles for WordPress image caption
+/* Image with caption */
 
 .content {
 
@@ -217,7 +213,7 @@
 }
 
 
-// Styles for WordPress Gallery shortcode
+/* Gallery */
 
 .content {
 

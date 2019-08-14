@@ -8,9 +8,9 @@ body {
 	font-size: 16px;
 	line-height: 1.25;
 	color: $color_main;
-	text-rendering: optimizeLegibility;
-	-moz-osx-font-smoothing: grayscale; 
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,12 +95,12 @@ a {
 }
 
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="submit"], textarea {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], input[type="submit"], textarea {
 	display: block;
-	width: 100%;
 	box-sizing: border-box;
 	position: relative;
-	padding: 15px 20px;
+	width: 100%;
+	padding: 10px 15px;
 	background: $color_white;
 	border: 1px solid rgba($color_main, 0.2);
 	font-family: $font_main;
@@ -113,6 +113,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
 
 	&:focus {
 		border-color: rgba($color_main, 0.4);
+		outline: none;
 	}
 
 }
@@ -123,9 +124,9 @@ textarea {
 }
 
 input[type="submit"] {
+	background-color: $color_main;
 	font-weight: 700;
 	color: $color_white;
-	background-color: $color_main;
 	text-transform: uppercase;
 	cursor: pointer;
 

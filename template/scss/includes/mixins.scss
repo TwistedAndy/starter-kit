@@ -1,5 +1,4 @@
 @mixin clear() {
-	*zoom: 1;
 
 	&:after {
 		display: table;
