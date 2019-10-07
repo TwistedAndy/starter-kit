@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @import 'includes/sprite.svg';
 
 @import 'includes/sprite.png';
@@ -6,17 +8,17 @@
 
 @import 'includes/mixins';
 
-@import 'base/reset';
-
 @import 'base/fonts';
 
 @import 'base/defaults';
 
+@import 'base/fields';
+
 @import 'base/layout';
 
-@import 'base/global';
-
 @import 'base/header';
+
+@import 'elements/*';
 
 @import 'blocks/*';
 

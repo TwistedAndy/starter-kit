@@ -1,3 +1,7 @@
+html, body {
+	height: 100%;
+}
+
 #site {
 	display: flex;
 	flex-direction: column;
@@ -6,63 +10,12 @@
 	min-height: 100%;
 }
 
-.container_box {
+.main_box {
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 0;
 	position: relative;
 	width: 100%;
-}
-
-.wrapper_box {
-	display: block;
-	position: relative;
-
-	.fixed {
-		display: flex;
-		align-items: flex-start;
-		flex-direction: row;
-		flex-wrap: nowrap;
-	}
-
-	.main_box {
-		display: block;
-		flex-basis: 0;
-		flex-grow: 1;
-		position: relative;
-		order: 1;
-	}
-
-	.sidebar_box {
-		display: block;
-		flex-grow: 0;
-		flex-shrink: 0;
-		width: 270px;
-		margin-left: 30px;
-		order: 2;
-	}
-
-	@include desktop_small {
-
-		.fixed {
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		.main_box {
-			width: 100%;
-			order: 1;
-		}
-
-		.sidebar_box {
-			margin-left: 0;
-			width: 100%;
-			max-width: 320px;
-			order: 2;
-		}
-
-	}
-
 }
 
 .fixed {
