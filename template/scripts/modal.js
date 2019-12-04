@@ -4,13 +4,19 @@ jQuery(function($) {
 
 	let wrapper = $('body');
 
-	$('.button').click(function(e) {
+	$('[data-modal]').click(function(e) {
 
-		$('#modal').addClass('is_visible');
+		let modal = $(this).data('modal');
 
-		wrapper.addClass('is_locked');
+		if (modal) {
 
-		return false;
+			$('#modal_' + modal).addClass('is_visible');
+
+			wrapper.addClass('is_locked');
+
+			return false;
+
+		}
 
 	});
 

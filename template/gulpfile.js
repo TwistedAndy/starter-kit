@@ -30,6 +30,7 @@ var sources = {
 		'styles/*.scss',
 		'styles/base/*.scss',
 		'styles/blocks/*.scss',
+		'styles/elements/*.scss',
 		'styles/includes/*.scss'
 	],
 	scripts: 'scripts/*.js'

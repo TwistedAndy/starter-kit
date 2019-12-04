@@ -11,12 +11,17 @@ jQuery(function($) {
 		if (href && href.indexOf('#') !== false) {
 
 			let parts = href.split('#');
+			
+			let selector = '';
 
 			if (parts.length > 1 && link === parts[0]) {
-				scrollTo($("#" + parts[1]));
-				return false;
+				selector = parts[1];
 			} else if (parts.length === 1) {
-				scrollTo($("#" + parts[0]));
+				selector = parts[0];
+			}
+
+			if (selector) {
+				scrollTo($("#" + selector));
 				return false;
 			}
 
