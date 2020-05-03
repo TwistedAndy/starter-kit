@@ -14,8 +14,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font: inherit;
 	font-size: 100%;
+	font-family: inherit;
 	vertical-align: baseline;
 }
 
@@ -43,6 +43,14 @@ sup {
 sub {
 	font-size: small;
 	vertical-align: sub;
+}
+
+b, strong {
+	font-weight: 700;
+}
+
+i, em {
+	font-style: italic;
 }
 
 ol, ul {
