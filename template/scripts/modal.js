@@ -7,7 +7,7 @@ jQuery(function($) {
 		var modal = $(this).data('modal');
 
 		if (modal) {
-			$('#modal_' + id).trigger('show');
+			$('#modal_' + modal).trigger('show');
 		}
 
 	});
