@@ -129,10 +129,6 @@ p {
 	margin: 0 0 20px;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
@@ -188,7 +184,7 @@ select::-ms-expand {
 
 select {
 	padding-right: 30px;
-	background: #ffffff url(../images/ico_select.svg) right 12px top 50% no-repeat;
+	background: #ffffff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M5.159 6.162l-5.17-5.3.842-.848L6 5.314l5.169-5.3.841.848-5.17 5.3L6 7.01z'/%3E%3C/svg%3E") right 12px top 50% no-repeat;
 }
 
 select::-ms-expand {
@@ -228,7 +224,7 @@ input[type="checkbox"] + span:before, input[type="checkbox"] + label:before, inp
 
 input[type="checkbox"]:checked + span:before, input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + span:before, input[type="radio"]:checked + label:before {
 	border-color: #333333;
-	background: #333333 url(../images/ico_check.svg) 60% 50% no-repeat;
+	background: #333333 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='8'%3E%3Cpath fill='%23fff' d='M3.159 7.162l-3.17-3.3.842-.848L4 6.314l6.169-6.3.84.848-6.168 6.3L4 8.01z'/%3E%3C/svg%3E") 60% 50% no-repeat;
 }
 
 @media (max-width: 1024px) {
@@ -813,6 +809,52 @@ button {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.flickity-enabled {
+	position: relative;
+}
+
+.flickity-enabled:focus {
+	outline: none;
+}
+
+.flickity-viewport {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	transition: height 0.2s;
+	z-index: 1;
+}
+
+.flickity-slider {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.flickity-enabled.is-draggable {
+	-webkit-tap-highlight-color: transparent;
+	tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.flickity-resize .slide, .flickity-resize .item {
+	min-height: 100%;
 }
 
 .screen-reader-text, .sr-hidden {
