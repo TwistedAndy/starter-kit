@@ -4,7 +4,7 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 	box-sizing: border-box;
 	width: 100%;
 	padding: 10px 15px;
-	border: 1px solid rgba($color_main, 0.2);
+	border: 1px solid $color_border;
 	border-radius: $radius_regular;
 	background: $color_white;
 	font-family: $font_main;
@@ -18,7 +18,7 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 	appearance: none;
 
 	&:focus {
-		border-color: rgba($color_main, 0.4);
+		border-color: $color_accent;
 		outline: none;
 	}
 
@@ -68,7 +68,7 @@ input[type="checkbox"], input[type="radio"] {
 			box-sizing: border-box;
 			width: 20px;
 			height: 20px;
-			border: 1px solid $color_main;
+			border: 1px solid $color_border;
 			border-radius: $radius_regular;
 			background-color: $color_white;
 		}

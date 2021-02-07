@@ -177,10 +177,6 @@
 		margin: 0 0 20px;
 	}
 
-	.submit {
-		@extend %button;
-	}
-
 	@include tablet_small {
 
 		.fields {
