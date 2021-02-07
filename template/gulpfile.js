@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	csssvg = require('gulp-css-svg'),
 	plumber = require('gulp-plumber'),
 	imagemin = require('gulp-imagemin'),
-	gloablize = require('gulp-sass-glob'),
+	globalize = require('gulp-sass-glob'),
 	sourcemaps = require('gulp-sourcemaps');
 
 var folders = {
@@ -103,7 +103,7 @@ gulp.task('styles', function() {
 	return gulp.src(sources.style)
 		.pipe(plumber(options.plumber))
 		.pipe(sourcemaps.init())
-		.pipe(gloablize())
+		.pipe(globalize())
 		.pipe(sass(options.sass))
 		.pipe(sourcemaps.write('./', options.sourcemaps.styles))
 		.pipe(csssvg(options.csssvg))

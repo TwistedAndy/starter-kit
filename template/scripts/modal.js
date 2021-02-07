@@ -14,7 +14,7 @@ jQuery(function($) {
 
 	$('.modal_box').each(function() {
 
-		var wrapper = $('body');
+		var wrapper = $(document.body);
 
 		var modal = $(this);
 
@@ -29,9 +29,11 @@ jQuery(function($) {
 		});
 
 		modal.click(function(e) {
-			if (e.target === this) {
-				modal.trigger('close');
-			}
+			modal.trigger('close');
+		});
+
+		modal.find('.modal').click(function(e) {
+			e.stopPropagation();
 		});
 
 		$('.close', modal).click(function() {

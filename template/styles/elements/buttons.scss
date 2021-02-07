@@ -1,8 +1,6 @@
 button {
-	display: block;
 	box-sizing: border-box;
 	padding: 0;
-	margin: 0;
 	border: none;
 	background: none;
 	transition: 0.2s;
@@ -23,7 +21,8 @@ button {
 	margin: 0;
 	border: 1px solid $color_accent;
 	border-radius: $radius_regular;
-	background: $color_accent;
+	background: $color_accent 50% 50% no-repeat;
+	background-size: 19px 19px;
 	color: $color_white;
 	font-size: 16px;
 	font-weight: 400;
@@ -45,8 +44,20 @@ button {
 
 }
 
-.button, [type="submit"] {
+.button {
 	@extend %button;
+
+	&.is_hidden {
+		display: none;
+	}
+
+	&.is_loading, &.is_loading:hover {
+		border-color: lighten($color_main, 20%);
+		background-color: transparent;
+		background-image: url(../images/ico_loading.svg);
+		color: transparent;
+	}
+
 }
 
 .buttons {
