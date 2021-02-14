@@ -4,27 +4,31 @@
 	flex-wrap: wrap;
 	align-items: stretch;
 	justify-content: flex-start;
-	margin: 0 -15px -30px;
+	margin: 0 -#{$gap_desktop/2} -#{$gap_desktop};
 	z-index: 2;
 
 	@include desktop_small {
-		margin: 0 -10px -20px;
+		margin: 0 -#{$gap_mobile/2} -#{$gap_mobile};
 	}
 
 }
 
 %item {
+	display: inline-flex;
 	position: relative;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	padding: 0 15px;
-	margin: 0 0 30px;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: stretch;
+	padding: 0 #{$gap_desktop/2};
+	margin: 0 0 #{$gap_desktop};
+	font-size: 1rem;
+	line-height: 1.5;
 	white-space: normal;
+	z-index: 2;
 
 	@include desktop_small {
-		padding: 0 10px;
-		margin-bottom: 20px;
+		padding: 0 #{$gap_mobile/2};
+		margin-bottom: #{$gap_mobile};
 	}
 
 }
@@ -32,11 +36,11 @@
 %item_alt {
 	display: block;
 	position: relative;
-	box-sizing: border-box;
-	margin: 0 15px 30px;
+	margin: 0 #{$gap_desktop/2} #{$gap_mobile};
+	z-index: 2;
 
 	@include desktop_small {
-		margin: 0 10px 20px;
+		margin: 0 #{$gap_mobile/2} #{$gap_mobile};
 	}
 
 }
@@ -44,24 +48,20 @@
 %slider {
 	display: block;
 	overflow: hidden;
-	width: calc(100% + 30px);
-	margin: 0 -15px;
+	width: calc(100% + #{$gap_desktop});
+	margin: 0 -#{$gap_desktop/2};
 	font-size: 0;
 	line-height: 0;
+	vertical-align: top;
 	white-space: nowrap;
 
 	.item {
-		display: inline-block;
-		margin: 0;
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 1.5;
+		margin-bottom: 0;
 	}
 
 	@include desktop_small {
-		width: calc(100% + 20px);
-		margin: 0 -10px;
-		vertical-align: middle;
+		width: calc(100% + #{$gap_mobile});
+		margin: 0 -#{$gap_mobile/2};
 	}
 
 }

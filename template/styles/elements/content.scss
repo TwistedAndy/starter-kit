@@ -112,10 +112,6 @@
 		overflow: auto;
 	}
 
-	& > :last-child {
-		margin-bottom: 0;
-	}
-
 	hr {
 		height: 1px;
 		margin: ($margin_content + 5px) 0;
@@ -132,7 +128,7 @@
 
 	}
 
-	a {
+	a:not([class]) {
 		color: inherit;
 		text-decoration: underline;
 
@@ -142,8 +138,21 @@
 
 	}
 
-	.button {
-		text-decoration: none;
+	blockquote {
+		display: block;
+		overflow: hidden;
+		padding: ($margin_content - 5px) $margin_content;
+		margin-bottom: $margin_content;
+		background: $color_background;
+
+		:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	& > :last-child {
+		margin-bottom: 0;
 	}
 
 	@include desktop_small {
@@ -166,8 +175,6 @@
 
 }
 
-
-/* WordPress default alignment classes */
 
 .content {
 
@@ -207,27 +214,7 @@
 }
 
 
-/* Blockquote */
-
-.content {
-
-	blockquote {
-		display: block;
-		overflow: hidden;
-		padding: ($margin_content - 5px) $margin_content;
-		margin-bottom: $margin_content;
-		background: $color_background;
-
-		:last-child {
-			margin-bottom: 0;
-		}
-
-	}
-
-}
-
-
-/* Image with caption */
+/* Galleries and images with captions */
 
 .content {
 
@@ -256,13 +243,6 @@
 		}
 
 	}
-
-}
-
-
-/* Gallery */
-
-.content {
 
 	.gallery {
 		display: flex;

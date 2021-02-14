@@ -14,26 +14,22 @@ jQuery(function($) {
 
 	$('.modal_box').each(function() {
 
-		var wrapper = $(document.body);
-
 		var modal = $(this);
 
 		modal.on('show', function() {
 			modal.addClass('is_visible');
-			wrapper.addClass('is_locked');
+			lockScroll();
 		});
 
 		modal.on('close', function() {
 			modal.removeClass('is_visible');
-			wrapper.removeClass('is_locked');
+			unlockScroll();
 		});
 
 		modal.click(function(e) {
-			modal.trigger('close');
-		});
-
-		modal.find('.modal').click(function(e) {
-			e.stopPropagation();
+			if (e.target === this) {
+				modal.trigger('close');
+			}
 		});
 
 		$('.close', modal).click(function() {
@@ -47,6 +43,5 @@ jQuery(function($) {
 		});
 
 	});
-
 
 });

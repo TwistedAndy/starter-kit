@@ -2,6 +2,15 @@ html, body {
 	height: 100%;
 }
 
+body {
+
+	&.is_locked {
+		overflow: hidden;
+		touch-action: none;
+	}
+
+}
+
 #site {
 	display: flex;
 	position: relative;
@@ -23,7 +32,7 @@ html, body {
 	position: relative;
 	box-sizing: border-box;
 	width: 100%;
-	max-width: $desktop_large + px;
+	max-width: #{$desktop_large}px;
 	padding: 0 #{$gap_aside}px;
 	margin: 0 auto;
 	z-index: 2;
@@ -33,7 +42,7 @@ html, body {
 	}
 
 	@include desktop_small {
-		padding: 0 20px;
+		padding: 0 $gap_mobile;
 	}
 
 }
@@ -55,7 +64,7 @@ section, %block {
 
 }
 
-.has_background {
+section.has_background {
 	padding: $margin_desktop 0;
 	background-color: $color_background;
 
@@ -64,7 +73,7 @@ section, %block {
 	}
 
 	.header_box + & {
-		margin-top: -40px;
+		margin-top: -$margin_header_desktop;
 	}
 
 	.has_background + & {
@@ -75,7 +84,7 @@ section, %block {
 		padding: $margin_tablet 0;
 
 		.header_box + & {
-			margin-top: -30px;
+			margin-top: -$margin_header_mobile;
 		}
 
 		.has_background + & {
@@ -91,6 +100,20 @@ section, %block {
 			margin-top: -$margin_phone;
 		}
 
+	}
+
+}
+
+section.has_border {
+	padding-bottom: $margin_desktop;
+	border-bottom: 1px solid $color_border;
+
+	@include desktop_small {
+		padding-bottom: $margin_tablet;
+	}
+
+	@include tablet_small {
+		padding-bottom: $margin_phone;
 	}
 
 }

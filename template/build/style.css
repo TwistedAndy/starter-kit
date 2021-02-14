@@ -23,6 +23,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	display: block;
 }
 
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
 body {
 	min-width: 320px;
 	color: #333333;
@@ -264,6 +268,11 @@ html, body {
 	height: 100%;
 }
 
+body.is_locked {
+	overflow: hidden;
+	touch-action: none;
+}
+
 #site {
 	display: flex;
 	position: relative;
@@ -301,7 +310,7 @@ html, body {
 	}
 }
 
-section, .content_box {
+section {
 	display: block;
 	position: relative;
 	margin-bottom: 80px;
@@ -309,52 +318,69 @@ section, .content_box {
 }
 
 @media (max-width: 1024px) {
-	section, .content_box {
+	section {
 		margin-bottom: 40px;
 	}
 }
 
 @media (max-width: 640px) {
-	section, .content_box {
+	section {
 		margin-bottom: 30px;
 	}
 }
 
-.has_background {
+section.has_background {
 	padding: 80px 0;
 	background-color: #f5f5f5;
 }
 
-.has_background:last-child {
+section.has_background:last-child {
 	margin-bottom: 0;
 }
 
-.header_box + .has_background {
+.header_box + section.has_background {
 	margin-top: -40px;
 }
 
-.has_background + .has_background {
+.has_background + section.has_background {
 	margin-top: -80px;
 }
 
 @media (max-width: 1024px) {
-	.has_background {
+	section.has_background {
 		padding: 40px 0;
 	}
-	.header_box + .has_background {
+	.header_box + section.has_background {
 		margin-top: -30px;
 	}
-	.has_background + .has_background {
+	.has_background + section.has_background {
 		margin-top: -40px;
 	}
 }
 
 @media (max-width: 640px) {
-	.has_background {
+	section.has_background {
 		padding: 30px 0;
 	}
-	.has_background + .has_background {
+	.has_background + section.has_background {
 		margin-top: -30px;
+	}
+}
+
+section.has_border {
+	padding-bottom: 80px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+@media (max-width: 1024px) {
+	section.has_border {
+		padding-bottom: 40px;
+	}
+}
+
+@media (max-width: 640px) {
+	section.has_border {
+		padding-bottom: 30px;
 	}
 }
 
@@ -397,6 +423,7 @@ button {
 	background: #1f50b4 50% 50% no-repeat;
 	background-size: 19px 19px;
 	color: #ffffff;
+	font-family: Arial, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 20px;
@@ -414,6 +441,37 @@ button {
 	border-color: #1f50b4;
 	background-color: #ffffff;
 	color: #1f50b4;
+}
+
+.button.primary {
+	border-color: #1f50b4;
+	background-color: transparent;
+	color: #1f50b4;
+}
+
+.button.primary:hover {
+	border-color: #D8232A;
+	background-color: transparent;
+	color: #D8232A;
+}
+
+.button.secondary {
+	border-color: #D8232A;
+	background-color: transparent;
+	color: #D8232A;
+}
+
+.button.secondary:hover {
+	border-color: #1f50b4;
+	background-color: transparent;
+	color: #1f50b4;
+}
+
+.button:disabled, .button:disabled:hover {
+	border-color: #666666;
+	background-color: rgba(51, 51, 51, 0.1);
+	color: #333333;
+	cursor: default;
 }
 
 .button.is_hidden {
@@ -540,10 +598,6 @@ button {
 	overflow: auto;
 }
 
-.content > :last-child {
-	margin-bottom: 0;
-}
-
 .content hr {
 	height: 1px;
 	margin: 30px 0;
@@ -559,17 +613,29 @@ button {
 	margin-bottom: 0;
 }
 
-.content a {
+.content a:not([class]) {
 	color: inherit;
 	text-decoration: underline;
 }
 
-.content a:hover {
+.content a:not([class]):hover {
 	text-decoration: none;
 }
 
-.content .button {
-	text-decoration: none;
+.content blockquote {
+	display: block;
+	overflow: hidden;
+	padding: 20px 25px;
+	margin-bottom: 25px;
+	background: #f5f5f5;
+}
+
+.content blockquote :last-child {
+	margin-bottom: 0;
+}
+
+.content > :last-child {
+	margin-bottom: 0;
 }
 
 @media (max-width: 1024px) {
@@ -586,7 +652,6 @@ button {
 	}
 }
 
-/* WordPress default alignment classes */
 .content .alignleft {
 	float: left;
 	margin: 0 25px 25px 0;
@@ -618,20 +683,7 @@ button {
 	}
 }
 
-/* Blockquote */
-.content blockquote {
-	display: block;
-	overflow: hidden;
-	padding: 20px 25px;
-	margin-bottom: 25px;
-	background: #f5f5f5;
-}
-
-.content blockquote :last-child {
-	margin-bottom: 0;
-}
-
-/* Image with caption */
+/* Galleries and images with captions */
 .content .wp-caption-text {
 	display: block;
 	margin: 0;
@@ -657,7 +709,6 @@ button {
 	margin: 0;
 }
 
-/* Gallery */
 .content .gallery {
 	display: flex;
 	position: relative;
@@ -1043,6 +1094,12 @@ button {
 	position: relative;
 	box-sizing: border-box;
 	margin: 0 0 20px;
+}
+
+.comments_box .error {
+	display: block;
+	margin: 10px 16px -8px;
+	color: #ff0000;
 }
 
 @media (max-width: 640px) {

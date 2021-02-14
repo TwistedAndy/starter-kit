@@ -4,7 +4,8 @@ $font_heading: Arial, sans-serif;
 $color_main: #333333;
 $color_white: #ffffff;
 $color_border: #eeeeee;
-$color_accent: #1f50b4;
+$color_primary: #1f50b4;
+$color_secondary: #D8232A;
 $color_background: #f5f5f5;
 
 $margin_content: 25px;
@@ -13,7 +14,13 @@ $margin_desktop: 80px;
 $margin_tablet: 40px;
 $margin_phone: 30px;
 
+$margin_header_desktop: 40px;
+$margin_header_mobile: 30px;
+
 $radius_regular: 4px;
+
+$gap_desktop: 30px;
+$gap_mobile: 20px;
 
 $gap_aside: 40;
 

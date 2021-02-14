@@ -18,7 +18,7 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 	appearance: none;
 
 	&:focus {
-		border-color: $color_accent;
+		border-color: $color_primary;
 		outline: none;
 	}
 

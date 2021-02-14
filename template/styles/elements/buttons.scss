@@ -19,11 +19,12 @@ button {
 	box-sizing: border-box;
 	padding: 10px 20px;
 	margin: 0;
-	border: 1px solid $color_accent;
+	border: 1px solid $color_primary;
 	border-radius: $radius_regular;
-	background: $color_accent 50% 50% no-repeat;
+	background: $color_primary 50% 50% no-repeat;
 	background-size: 19px 19px;
 	color: $color_white;
+	font-family: $font_main;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 20px;
@@ -37,15 +38,61 @@ button {
 	appearance: none;
 
 	&:hover {
-		border-color: #1f50b4;
+		border-color: $color_primary;
 		background-color: $color_white;
-		color: #1f50b4;
+		color: $color_primary;
 	}
 
 }
 
+%button_outline_primary {
+	border-color: $color_primary;
+	background-color: transparent;
+	color: $color_primary;
+
+	&:hover {
+		border-color: $color_secondary;
+		background-color: transparent;
+		color: $color_secondary;
+	}
+
+}
+
+%button_outline_secondary {
+	border-color: $color_secondary;
+	background-color: transparent;
+	color: $color_secondary;
+
+	&:hover {
+		border-color: $color_primary;
+		background-color: transparent;
+		color: $color_primary;
+	}
+
+}
+
+%button_disabled {
+	border-color: lighten($color_main, 20%);
+	background-color: rgba($color_main, 0.1);
+	color: $color_main;
+	cursor: default;
+}
+
 .button {
+
 	@extend %button;
+
+	&.primary {
+		@extend %button_outline_primary;
+	}
+
+	&.secondary {
+		@extend %button_outline_secondary;
+	}
+
+	&:disabled, &:disabled:hover {
+		@extend %button_disabled;
+	}
 
 	&.is_hidden {
 		display: none;

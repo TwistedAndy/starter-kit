@@ -130,7 +130,7 @@
 		cursor: pointer;
 
 		&:hover {
-			background-color: $color_accent;
+			background-color: $color_primary;
 		}
 
 	}
@@ -175,6 +175,12 @@
 		position: relative;
 		box-sizing: border-box;
 		margin: 0 0 20px;
+	}
+
+	.error {
+		display: block;
+		margin: 10px 16px -8px;
+		color: #ff0000;
 	}
 
 	@include tablet_small {
