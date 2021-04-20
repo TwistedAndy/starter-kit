@@ -40,13 +40,15 @@ body {
 }
 
 sup {
-	font-size: 0.5em;
+	font-size: 0.75em;
 	vertical-align: super;
+	text-decoration: none;
 }
 
 sub {
-	font-size: 0.5em;
+	font-size: 0.75em;
 	vertical-align: sub;
+	text-decoration: none;
 }
 
 b, strong {

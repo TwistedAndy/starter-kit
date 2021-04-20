@@ -14,14 +14,14 @@
 }
 
 %item {
-	display: inline-flex;
+	display: inline-block;
 	position: relative;
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: stretch;
 	padding: 0 #{$gap_desktop/2};
 	margin: 0 0 #{$gap_desktop};
-	font-size: 1rem;
+	font-size: 16px;
 	line-height: 1.5;
 	white-space: normal;
 	z-index: 2;

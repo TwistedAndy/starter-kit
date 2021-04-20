@@ -64,7 +64,7 @@ section, %block {
 
 }
 
-section.has_background {
+.has_background {
 	padding: $margin_desktop 0;
 	background-color: $color_background;
 
@@ -72,12 +72,16 @@ section.has_background {
 		margin-bottom: 0;
 	}
 
-	.header_box + & {
-		margin-top: -$margin_header_desktop;
+	& + .has_background {
+		margin-top: -$margin_desktop;
 	}
 
-	.has_background + & {
-		margin-top: -$margin_desktop;
+	&:not(.has_color) + .has_background:not(.has_color) {
+		padding-top: 0;
+	}
+
+	.header_box + & {
+		margin-top: -$margin_header_desktop;
 	}
 
 	@include desktop_small {
@@ -87,7 +91,7 @@ section.has_background {
 			margin-top: -$margin_header_mobile;
 		}
 
-		.has_background + & {
+		& + .has_background {
 			margin-top: -$margin_tablet;
 		}
 
@@ -96,7 +100,7 @@ section.has_background {
 	@include tablet_small {
 		padding: $margin_phone 0;
 
-		.has_background + & {
+		& + .has_background {
 			margin-top: -$margin_phone;
 		}
 
@@ -104,7 +108,25 @@ section.has_background {
 
 }
 
-section.has_border {
+.has_color {
+	background-color: $color_primary;
+	color: $color_white;
+
+	&.has_border {
+		border-bottom-color: rgba($color_white, 0.2);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: inherit;
+	}
+
+	.content {
+		color: rgba($color_white, 0.75);
+	}
+
+}
+
+.has_border {
 	padding-bottom: $margin_desktop;
 	border-bottom: 1px solid $color_border;
 

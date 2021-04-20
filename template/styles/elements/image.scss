@@ -1,6 +1,7 @@
 %image {
 	display: block;
 	position: relative;
+	overflow: hidden;
 	width: 100%;
 	z-index: 1;
 
@@ -8,7 +9,7 @@
 		content: '';
 		display: block;
 		position: relative;
-		padding-bottom: 50%;
+		padding-bottom: 100%;
 		z-index: 1;
 	}
 

@@ -373,7 +373,7 @@
 
 /* Embeds */
 
-.wp-block-embed, .wp-embed-video {
+.wp-block-embed, .wp-embed-video, .wp-video {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -420,13 +420,13 @@
 
 }
 
-.wp-embed-video {
+.wp-embed-video, .wp-video-shortcode {
 
 	&:before {
 		content: '';
 		display: block;
 		position: relative;
-		width: 100%;
+		width: 0;
 		padding-bottom: 56.25%;
 	}
 
