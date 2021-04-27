@@ -52,7 +52,6 @@ section, %block {
 	display: block;
 	position: relative;
 	margin-bottom: $margin_desktop;
-	z-index: 2;
 
 	@include desktop_small {
 		margin-bottom: $margin_tablet;

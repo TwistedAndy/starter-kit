@@ -4,9 +4,11 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 	box-sizing: border-box;
 	width: 100%;
 	padding: 10px 15px;
+	margin: 0;
 	border: 1px solid $color_border;
 	border-radius: $radius_regular;
 	background: $color_white;
+	color: $color_main;
 	font-family: $font_main;
 	font-size: 16px;
 	font-weight: 400;
