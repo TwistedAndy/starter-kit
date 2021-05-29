@@ -47,90 +47,42 @@ select {
 }
 
 input[type="checkbox"], input[type="radio"] {
-	display: block;
-	position: absolute;
-	left: -1000px;
-	visibility: hidden;
+	display: inline-block;
+	position: relative;
+	top: -1px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	margin: 0 5px 0 0;
+	border: 1px solid $color_border;
+	border-radius: $radius_regular;
+	background-color: $color_white;
+	vertical-align: middle;
+	visibility: visible;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 
-	& + span, & + label {
-		display: block;
-		position: relative;
-		padding-left: 30px;
-		color: $color_main;
-		font-size: 16px;
+	&:checked {
+		border-color: $color_main;
+		background: $color_main url(../images/ico_check.svg) 60% 50% no-repeat;
+	}
+
+	& + label {
+		display: inline;
 		line-height: 20px;
-		cursor: pointer;
-
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			box-sizing: border-box;
-			width: 20px;
-			height: 20px;
-			border: 1px solid $color_border;
-			border-radius: $radius_regular;
-			background-color: $color_white;
-		}
-
-	}
-
-	&:checked + span, &:checked + label {
-
-		&:before {
-			border-color: $color_main;
-			background: $color_main url(../images/ico_check.svg) 60% 50% no-repeat;
-		}
-
-	}
-
-	@include desktop_small {
-
-		& + span, & + label {
-			font-size: 14px;
-		}
-
 	}
 
 }
 
 input[type="radio"] {
+	border-radius: 50%;
 
-	& + span, & + label {
-
-		&:before, &:after {
-			border-radius: 50%;
-			background: none;
-		}
-
-		&:after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 6px;
-			left: 6px;
-			width: 8px;
-			height: 8px;
-			border-radius: 50%;
-			background-color: $color_main;
-			opacity: 0;
-			z-index: 2;
-		}
-
-	}
-
-	&:checked + span, &:checked + label {
-
-		&:before {
-			background: $color_white;
-		}
-
-		&:after {
-			opacity: 1;
-		}
-
+	&:checked {
+		background-image: none;
+		box-shadow: 0 0 0 5px $color_white inset;
 	}
 
 }

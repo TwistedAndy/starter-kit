@@ -2,6 +2,8 @@
 
 jQuery(function($) {
 
+	var wrapper = $(document.body);
+
 	$('[data-modal]').click(function(e) {
 
 		var modal = $(this).data('modal');
@@ -12,36 +14,38 @@ jQuery(function($) {
 
 	});
 
-	$('.modal_box').each(function() {
+	$('a[href^="#modal_"]').click(function(e) {
+		$($(this).attr('href')).trigger('show');
+		e.preventDefault();
+	});
 
-		var modal = $(this);
 
-		modal.on('show', function() {
-			modal.addClass('is_visible');
-			lockScroll();
-		});
+	wrapper.on('close', '.modal_box', function() {
+		$(this).removeClass('is_visible');
+		unlockScroll();
+	});
 
-		modal.on('close', function() {
-			modal.removeClass('is_visible');
-			unlockScroll();
-		});
+	wrapper.on('show', '.modal_box', function() {
+		$(this).addClass('is_visible');
+		lockScroll();
+	});
 
-		modal.click(function(e) {
-			if (e.target === this) {
-				modal.trigger('close');
-			}
-		});
+	wrapper.on('click', '.modal_box', function() {
+		$(this).trigger('close');
+	});
 
-		$('.close', modal).click(function() {
-			modal.trigger('close');
-		});
+	wrapper.on('click', '.modal_box .modal', function(e) {
+		if ($(e.target).is('.close, [data-close]')) {
+			$(this).trigger('close');
+		} else {
+			e.stopPropagation();
+		}
+	});
 
-		$(document).keyup(function(e) {
-			if (e.which === 27) {
-				modal.trigger('close');
-			}
-		});
-
+	$(document).keyup(function(e) {
+		if (e.which === 27) {
+			$('.modal_box').trigger('close');
+		}
 	});
 
 });
