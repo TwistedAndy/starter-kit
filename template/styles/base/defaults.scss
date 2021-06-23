@@ -76,16 +76,17 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 	position: relative;
 	margin: 0 0 20px;
+	color: inherit;
 	font-family: $font_heading;
 	font-weight: 700;
 	line-height: 1.25;
 
 	&:first-child {
-		margin-top: -0.2em;
+		margin-top: -0.1em;
 	}
 
 	&:last-child {
-		margin-bottom: -0.2em;
+		margin-bottom: -0.1em;
 	}
 
 }

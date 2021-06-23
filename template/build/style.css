@@ -76,17 +76,18 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 	position: relative;
 	margin: 0 0 20px;
+	color: inherit;
 	font-family: Arial, sans-serif;
 	font-weight: 700;
 	line-height: 1.25;
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-	margin-top: -0.2em;
+	margin-top: -0.1em;
 }
 
 h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {
-	margin-bottom: -0.2em;
+	margin-bottom: -0.1em;
 }
 
 h1 {
@@ -271,7 +272,6 @@ body.is_locked {
 	max-width: 1250px;
 	padding: 0 40px;
 	margin: 0 auto;
-	z-index: 2;
 }
 
 .fixed .fixed {
@@ -350,15 +350,7 @@ section {
 }
 
 .has_color.has_border {
-	border-bottom-color: rgba(255, 255, 255, 0.2);
-}
-
-.has_color h1, .has_color h2, .has_color h3, .has_color h4, .has_color h5, .has_color h6 {
-	color: inherit;
-}
-
-.has_color .content {
-	color: rgba(255, 255, 255, 0.75);
+	border-bottom-color: #eeeeee;
 }
 
 .has_border {
@@ -495,6 +487,9 @@ button {
 .content {
 	display: block;
 	position: relative;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
 }
 
 .content:after {
@@ -504,41 +499,53 @@ button {
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-	margin: 35px 0 15px;
+	margin: 40px 0 25px;
 }
 
 .content h1:first-child, .content h2:first-child, .content h3:first-child, .content h4:first-child, .content h5:first-child, .content h6:first-child {
-	margin-top: -0.25em;
+	margin-top: -0.1em;
+}
+
+.content h1:last-child, .content h2:last-child, .content h3:last-child, .content h4:last-child, .content h5:last-child, .content h6:last-child {
+	margin-bottom: -0.1em;
 }
 
 .content p, .content > table, .content > ul, .content > ol, .content .table_wrapper {
 	margin-bottom: 25px;
 }
 
-.content p + ul, .content p + ol {
-	margin-top: -10px;
+.content p:last-child, .content > table:last-child, .content > ul:last-child, .content > ol:last-child, .content .table_wrapper:last-child {
+	margin-bottom: 0;
+}
+
+.content a:not([class]) {
+	color: #1f50b4;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+.content a:not([class]):hover {
+	text-decoration: none;
 }
 
 .content ul, .content ol {
 	display: block;
-	position: relative;
 }
 
 .content ul ul, .content ul ol, .content ol ul, .content ol ol {
-	display: block;
-	padding-top: 15px;
+	padding-top: 20px;
 	margin-left: 0;
 }
 
 .content li {
 	display: block;
 	position: relative;
-	padding-left: 20px;
-	margin-bottom: 15px;
+	padding-left: 25px;
+	margin-bottom: 20px;
 }
 
-.content li:last-child {
-	margin-bottom: 0;
+.content li p:not(:last-child) {
+	margin-bottom: 10px;
 }
 
 .content ul > li:before {
@@ -550,7 +557,7 @@ button {
 	width: 6px;
 	height: 6px;
 	border-radius: 50%;
-	background-color: #333333;
+	background-color: #1f50b4;
 }
 
 .content ol {
@@ -577,14 +584,36 @@ button {
 }
 
 .content table {
-	max-width: 100%;
+	width: 100%;
 	border-spacing: 0;
 	border-collapse: collapse;
+	border: 1px solid #eeeeee;
+}
+
+.content thead {
+	background-color: #eeeeee;
+}
+
+.content tbody tr:nth-child(2n) {
+	background-color: #f5f5f5;
 }
 
 .content td, .content th {
-	padding: 5px 10px;
-	border: 1px solid #eeeeee;
+	padding: 10px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.content td:first-child, .content th:first-child {
+	padding-left: 20px;
+}
+
+.content td:last-child, .content th:last-child {
+	padding-right: 20px;
+}
+
+.content th {
+	font-weight: 600;
+	text-align: left;
 }
 
 .content .table_wrapper {
@@ -606,15 +635,6 @@ button {
 	margin-bottom: 0;
 }
 
-.content a:not([class]) {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.content a:not([class]):hover {
-	text-decoration: none;
-}
-
 .content blockquote {
 	display: block;
 	overflow: hidden;
@@ -623,21 +643,7 @@ button {
 	background: #f5f5f5;
 }
 
-.content blockquote :last-child {
-	margin-bottom: 0;
-}
-
-.content > :last-child {
-	margin-bottom: 0;
-}
-
 @media (max-width: 1024px) {
-	.content p, .content > table, .content > ul, .content > ol, .content .table_wrapper {
-		margin-bottom: 20px;
-	}
-	.content hr {
-		margin: 25px 0;
-	}
 	.content .table_wrapper {
 		display: block;
 		overflow-x: auto;
@@ -671,7 +677,6 @@ button {
 	.content .alignright, .content .alignleft {
 		display: block;
 		float: none;
-		margin: 0 auto 20px;
 		text-align: center;
 	}
 }

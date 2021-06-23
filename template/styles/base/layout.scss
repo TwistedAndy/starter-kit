@@ -35,7 +35,6 @@ body {
 	max-width: #{$desktop_large}px;
 	padding: 0 #{$gap_aside}px;
 	margin: 0 auto;
-	z-index: 2;
 
 	.fixed {
 		padding: 0;
@@ -112,15 +111,7 @@ section, %block {
 	color: $color_white;
 
 	&.has_border {
-		border-bottom-color: rgba($color_white, 0.2);
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		color: inherit;
-	}
-
-	.content {
-		color: rgba($color_white, 0.75);
+		border-bottom-color: $color_border;
 	}
 
 }
