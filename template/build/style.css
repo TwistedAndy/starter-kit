@@ -193,7 +193,7 @@ select::-ms-expand {
 
 select {
 	padding-right: 30px;
-	background: #ffffff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M5.159 6.162l-5.17-5.3.842-.848L6 5.314l5.169-5.3.841.848-5.17 5.3L6 7.01z'/%3E%3C/svg%3E") right 12px top 50% no-repeat;
+	background: #ffffff url(../images/ico_select.svg) right 12px top 50% no-repeat;
 }
 
 select::-ms-expand {
@@ -223,7 +223,7 @@ input[type="checkbox"], input[type="radio"] {
 input[type="checkbox"]:checked, input[type="radio"]:checked {
 	border-color: #333333;
 	background-color: #333333;
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='10' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.877 6.258L0 3.368l.764-.742 2.876 2.89L9.238 0 10 .742 4.403 6.258 3.64 7l-.763-.742z' fill='%23fff'/%3E%3C/svg%3E");
+	background-image: url(../images/ico_check.svg);
 }
 
 input[type="radio"] {
@@ -463,7 +463,7 @@ button {
 .button.is_loading, .button.is_loading:hover {
 	border-color: #666666;
 	background-color: transparent;
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='38' height='38' xmlns='http://www.w3.org/2000/svg' stroke='%23000'%3E%3Cg transform='translate(1 1)' stroke-width='2' fill='none' fill-rule='evenodd'%3E%3Ccircle stroke-opacity='.25' cx='18' cy='18' r='18'/%3E%3Cpath d='M36 18c0-9.94-8.06-18-18-18'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 18 18' to='360 18 18' dur='1s' repeatCount='indefinite'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+	background-image: url(../images/ico_loading.svg);
 	color: transparent;
 }
 
@@ -1255,7 +1255,7 @@ button {
 	height: 6px;
 	margin-top: -3px;
 	margin-left: -5px;
-	background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M5.159 6.162l-5.17-5.3.842-.848L6 5.314l5.169-5.3.841.848-5.17 5.3L6 7.01z'/%3E%3C/svg%3E") 50% 50% no-repeat;
+	background: url(../images/ico_select.svg) 50% 50% no-repeat;
 	background-size: contain;
 	transform: rotate(-90deg);
 }
