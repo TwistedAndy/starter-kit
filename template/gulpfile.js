@@ -84,13 +84,14 @@ gulp.task('scripts', function() {
 		.pipe(sourcemaps.init())
 		.pipe(concat('scripts.js'))
 		.pipe(babel({
-			'presets': [
+			presets: [
 				[require("@babel/preset-env"), {
 					debug: false,
 					useBuiltIns: false,
 				}]
 			],
-			'compact': true
+			compact: true,
+			comments: false
 		}))
 		.pipe(sourcemaps.write('./', options.sourcemaps.scripts))
 		.pipe(gulp.dest(folders.build));
@@ -106,7 +107,7 @@ gulp.task('styles', function() {
 		.pipe(globalize())
 		.pipe(sass(options.sass))
 		.pipe(sourcemaps.write('./', options.sourcemaps.styles))
-		.pipe(csssvg(options.csssvg))
+		//.pipe(csssvg(options.csssvg))
 		//.pipe(csso(options.csso))
 		.pipe(gulp.dest(folders.build));
 

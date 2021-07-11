@@ -1,4 +1,4 @@
-input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"], input[type="number"], select, textarea {
+input, select, textarea {
 	display: block;
 	position: relative;
 	box-sizing: border-box;
@@ -57,8 +57,8 @@ input[type="checkbox"], input[type="radio"] {
 	padding: 0;
 	margin: 0 5px 0 0;
 	border: 1px solid $color_border;
-	border-radius: $radius_regular;
-	background-color: $color_white;
+	border-radius: 4px;
+	background: $color_white 55% 50% no-repeat;
 	vertical-align: middle;
 	visibility: visible;
 	-webkit-appearance: none;
@@ -67,12 +67,8 @@ input[type="checkbox"], input[type="radio"] {
 
 	&:checked {
 		border-color: $color_main;
-		background: $color_main url(../images/ico_check.svg) 60% 50% no-repeat;
-	}
-
-	& + label {
-		display: inline;
-		line-height: 20px;
+		background-color: $color_main;
+		background-image: url(../images/ico_check.svg);
 	}
 
 }
