@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
-	babel = require('gulp-babel'),
 	csso = require('gulp-csso'),
+	babel = require('gulp-babel'),
 	notify = require('gulp-notify'),
 	concat = require('gulp-concat'),
 	csssvg = require('gulp-css-svg'),
@@ -46,7 +46,7 @@ var options = {
 	sass: {
 		outputStyle: 'expanded',
 		indentType: 'tab',
-		indentWidth: 1
+		indentWidth: 1,
 	},
 	sourcemaps: {
 		styles: {
