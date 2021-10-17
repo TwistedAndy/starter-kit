@@ -1,11 +1,6 @@
 .header_box {
 	display: block;
 	position: relative;
-	margin-bottom: $margin_header_desktop;
 	z-index: 10;
-
-	@include desktop_small {
-		margin-bottom: $margin_header_mobile;
-	}
 
 }

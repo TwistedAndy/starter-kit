@@ -23,31 +23,3 @@
 	}
 
 }
-
-%wrapper {
-	display: block;
-	position: relative;
-
-	& + .buttons {
-		margin-top: 0;
-		text-align: center;
-
-		.button {
-			margin-top: 30px;
-		}
-
-	}
-
-	@include desktop_small {
-
-		& + .buttons {
-
-			.button {
-				margin-top: 20px;
-			}
-
-		}
-
-	}
-
-}

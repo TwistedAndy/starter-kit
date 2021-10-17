@@ -32,100 +32,64 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	width: 100%;
-	max-width: #{$desktop_large}px;
-	padding: 0 #{$gap_aside}px;
+	max-width: var(--width-content);
+	padding: 0 var(--gap-aside);
 	margin: 0 auto;
 
 	.fixed {
 		padding: 0;
 	}
 
+}
+
+.wrapper {
+	display: block;
+	position: relative;
+
+	& + .buttons {
+		text-align: center;
+
+		.button {
+			margin-top: 35px;
+		}
+
+	}
+
 	@include desktop_small {
-		padding: 0 $gap_mobile;
+
+		& + .buttons {
+
+			.button {
+				margin-top: 25px;
+			}
+
+		}
+
 	}
 
 }
-
 
 section, %block {
 	display: block;
 	position: relative;
-	margin-bottom: $margin_desktop;
-
-	@include desktop_small {
-		margin-bottom: $margin_tablet;
-	}
-
-	@include tablet_small {
-		margin-bottom: $margin_phone;
-	}
-
+	margin-bottom: var(--gap-section);
 }
 
 .has_background {
-	padding: $margin_desktop 0;
-	background-color: $color_background;
+	padding: var(--gap-section) 0;
+	background-color: var(--color-background);
 
 	&:last-child {
 		margin-bottom: 0;
 	}
 
 	& + .has_background {
-		margin-top: -$margin_desktop;
-	}
-
-	&:not(.has_color) + .has_background:not(.has_color) {
-		padding-top: 0;
-	}
-
-	.header_box + & {
-		margin-top: -$margin_header_desktop;
-	}
-
-	@include desktop_small {
-		padding: $margin_tablet 0;
-
-		.header_box + & {
-			margin-top: -$margin_header_mobile;
-		}
-
-		& + .has_background {
-			margin-top: -$margin_tablet;
-		}
-
-	}
-
-	@include tablet_small {
-		padding: $margin_phone 0;
-
-		& + .has_background {
-			margin-top: -$margin_phone;
-		}
-
-	}
-
-}
-
-.has_color {
-	background-color: $color_primary;
-	color: $color_white;
-
-	&.has_border {
-		border-bottom-color: $color_border;
+		margin-top: calc(-1 * var(--gap-section));
 	}
 
 }
 
 .has_border {
-	padding-bottom: $margin_desktop;
-	border-bottom: 1px solid $color_border;
-
-	@include desktop_small {
-		padding-bottom: $margin_tablet;
-	}
-
-	@include tablet_small {
-		padding-bottom: $margin_phone;
-	}
-
+	padding-bottom: var(--gap-section);
+	border-bottom: 1px solid var(--gap-section);
 }
