@@ -35,9 +35,10 @@ $color_background: #F7F9FD;
 
 	/* Grid Paddings and Margins */
 	--gap-aside: 40px;
-	--gap-cards: 30px;
+	--gap-grid: 30px;
 	--gap-section: 80px;
 	--gap-content: 20px;
+	--gap-contents: 35px;
 
 	/* Content Widths */
 	--width-small: 800px;
@@ -62,9 +63,10 @@ $color_background: #F7F9FD;
 
 	@include desktop_small {
 
+		--gap-grid: 20px;
 		--gap-aside: 20px;
-		--gap-cards: 20px;
 		--gap-section: 50px;
+		--gap-contents: 25px;
 
 		--height-header: 80px;
 
