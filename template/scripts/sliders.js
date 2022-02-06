@@ -32,7 +32,7 @@ jQuery(function($) {
 				pageDots: false,
 				adaptiveHeight: false,
 				cellSelector: '.item',
-				imagesLoaded: true,
+				imagesLoaded: false,
 				cellAlign: 'left',
 				watchCSS: false
 			};
