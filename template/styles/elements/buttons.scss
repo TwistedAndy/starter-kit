@@ -18,7 +18,7 @@ button {
 	justify-content: center;
 	box-sizing: border-box;
 	width: auto;
-	height: 48px;
+	height: var(--height-control);
 	padding: 0 25px;
 	margin: 0;
 	border: 1px solid transparent;
@@ -38,8 +38,10 @@ button {
 	-webkit-appearance: none;
 	appearance: none;
 
-	&:hover {
-		background-color: var(--color-secondary);
+	@include hover {
+		&:hover {
+			background-color: var(--color-secondary);
+		}
 	}
 
 }
@@ -49,10 +51,12 @@ button {
 	background-color: transparent;
 	color: currentColor;
 
-	&:hover {
-		border-color: var(--color-primary);
-		background-color: transparent;
-		color: var(--color-primary);
+	@include hover {
+		&:hover {
+			border-color: var(--color-primary);
+			background-color: transparent;
+			color: var(--color-primary);
+		}
 	}
 
 }

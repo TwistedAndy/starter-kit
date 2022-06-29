@@ -134,11 +134,15 @@ a {
 		transition: opacity 0.2s;
 	}
 
-	&:hover {
-		text-decoration: none;
+	@include hover {
 
-		img {
-			opacity: 0.9;
+		&:hover {
+			text-decoration: none;
+
+			img {
+				opacity: 0.9;
+			}
+
 		}
 
 	}

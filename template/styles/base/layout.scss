@@ -71,16 +71,16 @@ section {
 	}
 
 	&_no_top {
-		--gap-section-top: 0;
+		--gap-section-top: 0px;
 	}
 
 	&_no_bottom {
-		--gap-section-bottom: 0;
+		--gap-section-bottom: 0px;
 	}
 
 	&_no_both {
-		--gap-section-top: 0;
-		--gap-section-bottom: 0;
+		--gap-section-top: 0px;
+		--gap-section-bottom: 0px;
 	}
 
 	&_border {
