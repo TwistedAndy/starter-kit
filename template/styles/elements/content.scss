@@ -210,6 +210,7 @@
 		.alignright, .alignleft {
 			display: block;
 			float: none;
+			margin: 0 0 var(--gap-content);
 			text-align: center;
 		}
 

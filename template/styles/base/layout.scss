@@ -100,7 +100,7 @@ section {
 	flex-wrap: wrap;
 	align-items: stretch;
 	justify-content: flex-start;
-	margin: 0 calc(-0.5 * var(--gap-grid)) calc(-1 * var(--gap-grid));
+	margin: 0 calc(-0.5 * var(--gap-grid)) calc(-1 * var(--gap-vertical));
 	z-index: 2;
 }
 
@@ -111,7 +111,7 @@ section {
 	align-items: stretch;
 	justify-content: stretch;
 	padding: 0 calc(0.5 * var(--gap-grid));
-	margin: 0 0 var(--gap-grid);
+	margin: 0 0 var(--gap-vertical);
 	font-size: var(--size-base);
 	line-height: 1.5;
 	white-space: normal;
@@ -131,6 +131,25 @@ section {
 
 	.item {
 		margin-bottom: 0;
+	}
+
+}
+
+.admin-bar {
+	--height-bar: 32px;
+
+	@include media_max(782px) {
+		--height-bar: 46px;
+	}
+
+	@include media_max(600px) {
+		margin-top: -46px;
+		--height-bar: 0px;
+
+		#wpadminbar {
+			display: none;
+		}
+
 	}
 
 }
