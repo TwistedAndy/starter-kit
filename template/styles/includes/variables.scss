@@ -49,8 +49,10 @@ $color_background: #F7F8F9;
 	--gap-section-bottom: var(--gap-section);
 
 	/* Content Widths */
+	--width-item: 25%;
 	--width-small: 800px;
 	--width-regular: #{$desktop_large};
+	--width-scrollbar: 0px;
 
 	--height-control: 48px;
 	--height-header: 80px;
@@ -84,6 +86,8 @@ $color_background: #F7F8F9;
 		--height-control: 42px;
 		--height-header: 60px;
 
+		--width-item: 33.333%;
+
 		--size-h1: 32px;
 		--size-h2: 24px;
 		--size-h3: 20px;
@@ -95,6 +99,14 @@ $color_background: #F7F8F9;
 	@include tablet_small {
 
 		--gap-section: 35px;
+		--width-item: 50%;
+
+	}
+
+	@include phone_small {
+
+		--gap-section: 35px;
+		--width-item: 100%;
 
 	}
 

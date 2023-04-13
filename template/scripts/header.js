@@ -3,9 +3,10 @@ jQuery(function($) {
 	$('.header_box').each(function() {
 
 		var wrapper = $(this),
-			submenus = $('.submenu', wrapper);
+			submenus = $('.submenu', wrapper),
+			isFixed = false;
 
-		$('.menu_btn', wrapper).click(function() {
+		wrapper.on('click', '.menu_btn', function() {
 			if (wrapper.hasClass('is_menu')) {
 				wrapper.removeClass('is_menu');
 				unlockScroll();
@@ -46,11 +47,6 @@ jQuery(function($) {
 
 			}
 
-			if (e.target === this) {
-				e.stopPropagation();
-				return false;
-			}
-
 		});
 
 		window.addEventListener('scroll', handleScroll);
@@ -71,11 +67,24 @@ jQuery(function($) {
 			}
 
 			if (window.scrollY > offsetFull) {
-				wrapper.addClass('is_fixed');
-				document.documentElement.style.setProperty('--header-offset', '0px');
+
+				if (!isFixed) {
+					wrapper.addClass('is_fixed');
+					document.documentElement.style.setProperty('--header-offset', '0px');
+				}
+
+				isFixed = true;
+
 			} else {
-				wrapper.removeClass('is_fixed');
+
+				if (isFixed) {
+					wrapper.removeClass('is_fixed');
+				}
+
 				document.documentElement.style.setProperty('--header-offset', offset + 'px');
+
+				isFixed = false;
+
 			}
 
 		}
