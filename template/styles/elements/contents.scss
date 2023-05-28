@@ -7,4 +7,9 @@
 		margin-bottom: 0;
 	}
 
+	.content {
+		display: inline-block;
+		max-width: var(--width-content);
+	}
+
 }

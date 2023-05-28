@@ -4,10 +4,19 @@
 		flex-wrap: nowrap;
 	}
 
-	&.is-horizontal, &.is-vertical {
+	&.is-horizontal {
 		display: block;
 		width: 100%;
 		margin: 0;
+
+		.carousel-track {
+			width: calc(100% + var(--gap-grid));
+		}
+
+		.item {
+			margin-bottom: 0;
+		}
+
 	}
 
 	&.is-ltr {
@@ -15,11 +24,7 @@
 	}
 
 	&.is-rtl {
-		direction: rtl
-	}
-
-	.item {
-		margin-bottom: 0;
+		direction: rtl;
 	}
 
 	&-viewport {
@@ -30,12 +35,10 @@
 		backface-visibility: hidden;
 
 		&.is-draggable {
-			cursor: move;
 			cursor: grab;
 		}
 
 		&.is-dragging {
-			cursor: move;
 			cursor: grabbing;
 		}
 
@@ -43,9 +46,8 @@
 
 	&-track {
 		display: flex;
-		width: calc(100% + var(--gap-grid));
+		position: relative;
 		height: 100%;
-		padding: 0;
 		margin: 0 auto;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
@@ -55,10 +57,10 @@
 		position: relative;
 		flex-wrap: wrap;
 		align-items: center;
-		align-content: stretch;
 		justify-content: center;
-		min-width: 0;
-		margin: var(--gap-grid) 0 0;
+		height: 40px;
+		padding: 0 50px;
+		margin: var(--gap-vertical) 0 0;
 		z-index: 3;
 
 		li {
@@ -79,7 +81,7 @@
 			width: 10px;
 			height: 10px;
 			border-radius: 50%;
-			background-color: var(--color-border);
+			background-color: var(--color-field);
 			transition: 0.2s;
 			cursor: pointer;
 
@@ -96,17 +98,17 @@
 	&-button {
 		display: block;
 		position: absolute;
-		top: 50%;
-		right: -15px;
-		width: 30px;
-		height: 30px;
-		margin: -15px 0 0;
+		right: 0;
+		bottom: 0;
+		width: 40px;
+		height: 40px;
+		border: 1px solid var(--color-border);
 		border-radius: 50%;
-		background-color: var(--color-link);
-		color: var(--color-base);
+		background-color: var(--color-background);
+		color: var(--color-heading);
 		transition: 0.2s;
 		cursor: pointer;
-		z-index: 3;
+		z-index: 4;
 
 		&:before {
 			content: '';
@@ -116,7 +118,7 @@
 			left: 50%;
 			width: 8px;
 			height: 12px;
-			margin: -6px 0 0 -3px;
+			margin: -6px 0 0 -4px;
 			background-color: currentColor;
 			-webkit-mask: url(../images/ico_arrow.svg) 50% 50% no-repeat;
 		}
@@ -128,13 +130,20 @@
 
 		&.is-prev {
 			right: auto;
-			left: -15px;
+			left: 0;
 
 			&:before {
-				margin-left: -4px;
 				transform: scaleX(-1);
 			}
 
+		}
+
+		@include hover {
+			&:hover {
+				border-color: transparent;
+				background-color: var(--color-primary);
+				color: var(--color-base);
+			}
 		}
 
 	}

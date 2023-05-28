@@ -35,7 +35,7 @@ function setViewportVariables() {
 	styles.setProperty('--width-scrollbar', getScrollbarWidth() + 'px');
 
 	if (footer) {
-		styles.setProperty('--width-content', footer.clientWidth + 'px');
+		styles.setProperty('--width-regular', footer.clientWidth + 'px');
 	}
 
 }

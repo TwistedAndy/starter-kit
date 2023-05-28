@@ -30,8 +30,8 @@ body {
 
 .fixed {
 	position: relative;
+	width: 100%;
 	max-width: var(--width-regular);
-	padding: 0 var(--gap-aside);
 	margin: 0 auto;
 
 	.fixed {
@@ -55,7 +55,7 @@ body {
 
 section {
 	position: relative;
-	padding: calc(var(--gap-section-top) + var(--gap-section-shift)) 0 var(--gap-section-bottom);
+	padding: calc(var(--gap-section-top) + var(--gap-section-shift)) var(--gap-aside) var(--gap-section-bottom);
 	background-color: var(--color-section);
 	color: var(--color-text);
 	--gap-section-top: 0px;
@@ -124,9 +124,9 @@ section {
 			position: absolute;
 			bottom: 0;
 			left: 50%;
-			width: var(--width-content);
+			width: var(--width-regular);
 			height: 1px;
-			margin-left: calc(-0.5 * var(--width-content));
+			margin-left: calc(-0.5 * var(--width-regular));
 			background-color: var(--color-border);
 		}
 
@@ -151,6 +151,7 @@ section {
 	display: inline-flex;
 	position: relative;
 	flex-direction: column;
+	flex-grow: 0;
 	flex-shrink: 0;
 	width: calc(var(--width-item) - var(--gap-grid));
 	margin: 0 var(--gap-grid) var(--gap-vertical) 0;

@@ -1,4 +1,4 @@
-$desktop_large: 1420px + 40px * 2;
+$desktop_large: 1420px;
 $desktop_small: 1024px;
 
 $tablet_large: 768px;
@@ -60,7 +60,7 @@ $color_background: #F7F8F9;
 	--width-regular: #{$desktop_large};
 	--width-scrollbar: 0px;
 	--width-contents: 640px;
-	--width-content: 1420px;
+	--width-content: 480px;
 
 	--height-control: 50px;
 	--height-header: 80px;

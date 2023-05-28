@@ -9,8 +9,9 @@ jQuery(function($){
 		}
 
 		var args = {
-			infinite: false,
+			infinite: true,
 			center: false,
+			transition: 'slide',
 			slidesPerPage: 1,
 			classes: {
 				container: 'carousel',
