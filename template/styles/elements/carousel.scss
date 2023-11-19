@@ -1,11 +1,13 @@
 .carousel {
 
 	&.items {
+		overflow: hidden;
 		flex-wrap: nowrap;
 	}
 
 	&.is-horizontal {
 		display: block;
+		overflow: visible;
 		width: 100%;
 		margin: 0;
 
