@@ -4,6 +4,7 @@ button {
 	border: none;
 	background: none;
 	color: currentColor;
+	font-family: var(--font-main);
 	transition: 0.2s;
 	cursor: pointer;
 	-moz-appearance: none;
@@ -79,9 +80,9 @@ button {
 		flex-shrink: 0;
 		width: 16px;
 		height: 16px;
-		margin-right: 6px;
+		margin-right: 8px;
 		background-color: currentColor;
-		-webkit-mask: none 50% 50% no-repeat;
+		-webkit-mask: var(--mask-image) 50% 50% / contain no-repeat;
 	}
 
 }
@@ -93,9 +94,9 @@ button {
 		display: inline-block;
 		width: 16px;
 		height: 16px;
-		margin-left: 6px;
+		margin-left: 8px;
 		background-color: currentColor;
-		-webkit-mask: none 50% 50% no-repeat;
+		-webkit-mask: var(--mask-image) 50% 50% / contain no-repeat;
 	}
 
 }
@@ -118,7 +119,7 @@ button {
 
 	&.is_loading, &.is_loading:hover {
 		border-color: var(--color-border);
-		background-color: var(--color-muted);
+		background-color: transparent;
 		background-image: url(../images/ico_loading.svg);
 		color: transparent;
 	}
