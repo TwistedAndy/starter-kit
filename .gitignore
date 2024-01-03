@@ -1,5 +1,7 @@
 node_modules
 package-lock.json
+template/plugins/fancybox.css
+template/plugins/fancybox.umd.js
 
 .idea
 .DS_Store
