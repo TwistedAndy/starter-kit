@@ -1,4 +1,4 @@
-jQuery(document.body).on('tw_init', '.posts_box', function(e, $) {
+jQuery(document.body).on('tw_init', '[class*="_box"]', function(e, $) {
 
 	if (typeof Carousel !== 'function') {
 		return;
@@ -37,7 +37,7 @@ jQuery(document.body).on('tw_init', '.posts_box', function(e, $) {
 					isAfterNext: 'is-after-next'
 				},
 				dotTpl: '<button type="button" data-carousel-page="%i" aria-label="{{GOTO}}"></button>',
-				dynamicFrom: 3,
+				dynamicFrom: 5,
 				minCount: 3
 			},
 			Navigation: {
@@ -72,7 +72,7 @@ jQuery(document.body).on('tw_init', '.posts_box', function(e, $) {
 
 		if (typeof carousel === 'object') {
 
-			carousel.reInit(args, plugins);
+			// carousel.reInit(args, plugins);
 
 		} else {
 

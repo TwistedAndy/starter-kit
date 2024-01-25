@@ -20,7 +20,7 @@ let folders = {
 };
 
 let sources = {
-	style: 'styles/style.scss',
+	style: 'styles/theme.scss',
 	styles: [
 		'styles/*.scss',
 		'styles/woo/*.scss',
