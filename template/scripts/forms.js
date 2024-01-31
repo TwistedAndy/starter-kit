@@ -18,7 +18,7 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 
 			if ($('[name="action"]', form).length === 0) {
 
-				var action = 'feedback';
+				var action = 'email_handler';
 
 				if (form.hasClass('comment-form')) {
 					action = 'comment_add';
@@ -60,7 +60,7 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 			var data = new FormData(),
 				file = this;
 
-			data.append('action', 'process_file');
+			data.append('action', 'email_attachment');
 
 			data.append(file.name, file.files[0]);
 
@@ -100,7 +100,7 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 
 			data.push({
 				name: 'action',
-				value: 'remove_file'
+				value: 'email_remove'
 			});
 
 			data.push({
@@ -150,7 +150,7 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 				for (let i in data.files) {
 					if (data.files.hasOwnProperty(i)) {
 						var field = $('[name=' + i + ']', form).closest('.field');
-						field.siblings('.notify').slideUp(400, function(){
+						field.siblings('.notify').slideUp(400, function() {
 							$(this).remove();
 						});
 						message = $('<div class="notify">' + data['files'][i] + '</div>');
