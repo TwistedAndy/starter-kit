@@ -29,7 +29,6 @@ let sources = {
 		'styles/elements/*.scss',
 		'styles/includes/*.scss',
 	],
-	blocks: 'styles/blocks.scss',
 	plugins: [
 		'plugins/**/*.scss',
 	],
@@ -89,14 +88,6 @@ function plugins() {
 		.pipe(gulp.dest('./'));
 }
 
-function blocks() {
-	return gulp.src(sources.blocks)
-		.pipe(plumber(options.plumber))
-		.pipe(globalize())
-		.pipe(sass(options.sass))
-		.pipe(gulp.dest(folders.build));
-}
-
 function images() {
 	return gulp.src(folders.images + '/**/*.{png,gif,jpg,jpeg,svg}')
 		.pipe(plumber(options.plumber))
@@ -111,8 +102,6 @@ exports.styles = styles;
 exports.scripts = scripts;
 
 exports.imagemin = images;
-
-exports.blocks = blocks;
 
 exports.plugins = plugins;
 

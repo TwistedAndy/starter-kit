@@ -175,4 +175,12 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 
 	});
 
+	/**
+	 * Autoresize textarea fields
+	 */
+	$(document.body).on('input change', 'textarea', function() {
+		this.style.minHeight = 'initial';
+		this.style.minHeight = (this.scrollHeight) + 'px';
+	});
+
 });
