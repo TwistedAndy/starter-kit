@@ -34,7 +34,6 @@ body {
 #site {
 	display: flex;
 	position: relative;
-	overflow: hidden;
 	flex-direction: column;
 	min-height: 100dvh;
 	padding-top: var(--height-bar);
@@ -60,6 +59,20 @@ body {
 
 	.fixed {
 		padding: 0;
+	}
+
+}
+
+.tw {
+	--gap-section: 40px;
+	--gap-aside: 20px;
+
+	& > section:first-child:not(.box_no_top) {
+		--gap-section-top: var(--gap-section);
+	}
+
+	& > section:last-child:not(.box_no_bottom) {
+		--gap-section-bottom: var(--gap-section);
 	}
 
 }

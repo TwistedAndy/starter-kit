@@ -21,19 +21,40 @@
 
 	<main>
 
-		<header class="header_box">
-			
+		<header class="header_box is_sticky">
+
 			<div class="fixed">
-			
+
 				<a href="#" class="logo"></a>
 
+				<nav class="navigation" id="main-menu">
+
+					<ul class="menu">
+						<li><a href="#"></a></li>
+						<li class="submenu">
+							<a href="#"></a>
+							<ul class="sub-menu">
+								<li><a href="#"></a></li>
+								<li><a href="#"></a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+					</ul>
+
+				</nav>
+
 				<form action="#" method="get" class="search">
-					<input type="text" value="" placeholder="Search..." name="s" />
+					<input type="text" value="" placeholder="Search..." name="s" aria-label="Search" />
 					<input type="submit" value="Search" />
 				</form>
 
+				<button aria-label="Toggle Menu" class="menu_btn" aria-controls="main-menu"><span></span></button>
+
 			</div>
-			
+
 		</header>
 
 	</main>
@@ -42,7 +63,10 @@
 
 		<div class="fixed">
 
-			<div class="footer"></div>
+			<div class="footer">
+
+
+			</div>
 
 		</div>
 
