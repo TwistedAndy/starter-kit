@@ -2,8 +2,10 @@ jQuery(document).on('tw_init', '[class*="_box"]', function(e, $) {
 
 	var forms = $(this);
 
-	if (!forms.is('form')) {
-		forms = $('.form_box form, form.form_box, form.comment-form', this);
+	if (forms.hasClass('form_box') && !forms.is('form')) {
+		forms = $('form', this);
+	} else {
+		forms = $('form.form_box, form.comment-form', this);
 	}
 
 	forms.not('.skip_processing').each(function() {

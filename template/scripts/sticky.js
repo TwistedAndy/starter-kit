@@ -14,21 +14,17 @@ jQuery(document).on('tw_init', function(e, $) {
 			top = styles.getPropertyValue('top');
 
 		if (top.indexOf('px') !== -1) {
-
 			elements.push({
 				target: this,
 				type: 'top',
-				value: parseInt(top.replace('px', ''))
+				value: Math.round(Number(top.replace('px', '')))
 			});
-
 		} else if (bottom.indexOf('px') !== -1) {
-
 			elements.push({
 				target: this,
 				type: 'bottom',
-				value: parseInt(bottom.replace('px', ''))
+				value: Math.round(Number(bottom.replace('px', '')))
 			});
-
 		}
 
 	});
@@ -45,17 +41,17 @@ jQuery(document).on('tw_init', function(e, $) {
 				rect = element.target.getBoundingClientRect();
 
 			if (element.type === 'top' && Math.abs(element.value - rect.top) < 1) {
-				isFixed = true;
 				topBar += rect.height;
+				isFixed = window.scrollY > 0;
 			} else if (element.type === 'bottom' && Math.abs(window.innerHeight - rect.height - rect.top) < 1) {
-				isFixed = true;
 				bottomBar += rect.height;
+				isFixed = true;
 			}
 
-			if (isFixed && !hasClass) {
-				element.target.classList.add('is_fixed');
-			} else if (!isFixed && hasClass) {
+			if ((!isFixed && hasClass)) {
 				element.target.classList.remove('is_fixed');
+			} else if (isFixed && !hasClass) {
+				element.target.classList.add('is_fixed');
 			}
 
 		});
@@ -72,8 +68,6 @@ jQuery(document).on('tw_init', function(e, $) {
 			} else {
 				document.body.style.setProperty('--header-offset', '0px');
 			}
-
-			document.body.style.setProperty('--header-shift', Math.round(rect.y + window.scrollY) + 'px');
 
 		}
 

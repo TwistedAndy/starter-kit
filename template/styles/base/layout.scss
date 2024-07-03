@@ -41,7 +41,6 @@ body {
 	& > main {
 		display: flex;
 		position: relative;
-		overflow: hidden;
 		flex-direction: column;
 		flex-grow: 1;
 		flex-shrink: 0;
@@ -73,6 +72,10 @@ body {
 
 	& > section:last-child:not(.box_no_bottom) {
 		--gap-section-bottom: var(--gap-section);
+	}
+
+	iframe {
+		max-height: 1000px;
 	}
 
 }
