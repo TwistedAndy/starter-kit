@@ -3,7 +3,6 @@ let gulp = require('gulp'),
 	notify = require('gulp-notify'),
 	concat = require('gulp-concat'),
 	plumber = require('gulp-plumber'),
-	imagemin = require('gulp-imagemin'),
 	globalize = require('gulp-sass-glob'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify-es').default;
@@ -15,8 +14,7 @@ if (typeof sass.compiler === 'undefined') {
 let folders = {
 	build: './build',
 	styles: './styles',
-	scripts: './scripts',
-	images: './images'
+	scripts: './scripts'
 };
 
 let sources = {
@@ -88,20 +86,9 @@ function plugins() {
 		.pipe(gulp.dest('./'));
 }
 
-function images() {
-	return gulp.src(folders.images + '/**/*.{png,gif,jpg,jpeg,svg}')
-		.pipe(plumber(options.plumber))
-		.pipe(imagemin())
-		.pipe(gulp.dest(function(file) {
-			return file.base;
-		}));
-}
-
 exports.styles = styles;
 
 exports.scripts = scripts;
-
-exports.imagemin = images;
 
 exports.plugins = plugins;
 
