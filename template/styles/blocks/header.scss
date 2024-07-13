@@ -15,11 +15,7 @@
 
 	&.is_sticky {
 		position: sticky;
-
-		& ~ section, & ~ div {
-			--height-fixed: var(--height-header);
-		}
-
+		top: calc(var(--height-bar) + var(--height-top));
 	}
 
 	&.is_fixed {

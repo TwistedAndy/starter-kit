@@ -4,77 +4,145 @@ jQuery(document).on('tw_init', function(e, $) {
 		return;
 	}
 
-	var elements = [],
+	let elements = $('.header_box.is_sticky'),
 		header = $('.header_box').get(0);
-
-	$('.header_box.is_sticky').each(function() {
-
-		var styles = window.getComputedStyle(this, null),
-			bottom = styles.getPropertyValue('bottom'),
-			top = styles.getPropertyValue('top');
-
-		if (top.indexOf('px') !== -1) {
-			elements.push({
-				target: this,
-				type: 'top',
-				value: Math.round(Number(top.replace('px', '')))
-			});
-		} else if (bottom.indexOf('px') !== -1) {
-			elements.push({
-				target: this,
-				type: 'bottom',
-				value: Math.round(Number(bottom.replace('px', '')))
-			});
-		}
-
-	});
 
 	function handleScroll() {
 
-		var topBar = 0,
-			bottomBar = 0;
+		let topBar = 0,
+			bottomBar = 0,
+			itemsTop = [],
+			itemsBottom = [];
 
-		elements.forEach(function(element) {
+		elements.each(function() {
 
-			var isFixed = false,
-				hasClass = element.target.classList.contains('is_fixed'),
-				rect = element.target.getBoundingClientRect();
+			let element = this,
+				styles = window.getComputedStyle(element, null),
+				position = styles.getPropertyValue('position'),
+				bottom = styles.getPropertyValue('bottom'),
+				top = styles.getPropertyValue('top');
 
-			if (element.type === 'top' && Math.abs(element.value - rect.top) < 1) {
-				topBar += rect.height;
-				isFixed = window.scrollY > 0;
-			} else if (element.type === 'bottom' && Math.abs(window.innerHeight - rect.height - rect.top) < 1) {
-				bottomBar += rect.height;
-				isFixed = true;
+			if (position !== 'fixed' && position !== 'sticky') {
+				return;
 			}
 
-			if ((!isFixed && hasClass)) {
-				element.target.classList.remove('is_fixed');
-			} else if (isFixed && !hasClass) {
-				element.target.classList.add('is_fixed');
+			let data = {
+				element: element,
+				rect: this.getBoundingClientRect(),
+				top: false,
+				bottom: false
+			};
+
+			if (position === 'fixed') {
+
+				top = parseInt(top.replace('px', ''));
+				bottom = parseInt(bottom.replace('px', ''));
+
+				if (top <= bottom) {
+					data.top = top;
+					itemsTop.push(data);
+				} else {
+					data.bottom = bottom;
+					itemsBottom.unshift(data);
+				}
+
+			} else {
+
+				if (top.indexOf('px') !== -1) {
+					data.top = parseInt(top.replace('px', ''));
+					itemsTop.push(data);
+				} else if (bottom.indexOf('px') !== -1) {
+					data.bottom = parseInt(bottom.replace('px', ''));
+					itemsBottom.unshift(data);
+				}
+
 			}
 
 		});
 
-		document.body.style.setProperty('--height-top', topBar + 'px');
-		document.body.style.setProperty('--height-bottom', bottomBar + 'px');
+		if (itemsTop.length > 0) {
+			itemsTop.sort(function(a, b) {
+				return a.rect.top - b.rect.top;
+			});
+		}
+
+		if (itemsBottom.length > 0) {
+			itemsBottom.sort(function(a, b) {
+				return b.rect.top - a.rect.top;
+			});
+		}
+
+		itemsTop.concat(itemsBottom).forEach(function(item) {
+
+			var element = item.element,
+				rect = item.rect,
+				isFixed = false,
+				value = topBar + 'px';
+
+			if (item.top !== false) {
+
+				if (element.style.getPropertyValue('--height-top') !== value) {
+					element.style.setProperty('--height-top', value);
+					item.top = parseInt(window.getComputedStyle(element, null).getPropertyValue('top').replace('px', '')) || 0;
+					rect = element.getBoundingClientRect();
+				}
+
+				if (Math.abs(item.top - rect.top) < 1) {
+					topBar += rect.height;
+					isFixed = window.scrollY > 0;
+				}
+
+			} else if (item.bottom !== false) {
+
+				value = bottomBar + 'px';
+
+				if (element.style.getPropertyValue('--height-bottom') !== value) {
+					element.style.setProperty('--height-bottom', value);
+					item.bottom = parseInt(window.getComputedStyle(element, null).getPropertyValue('bottom').replace('px', '')) || 0;
+					rect = element.getBoundingClientRect();
+				}
+
+				if (Math.abs(window.innerHeight - rect.height - rect.top - item.bottom) < 1) {
+					bottomBar += rect.height;
+					isFixed = true;
+				}
+
+			}
+
+			if ((!isFixed && element.classList.contains('is_fixed'))) {
+				element.classList.remove('is_fixed');
+			} else if (isFixed && !element.classList.contains('is_fixed')) {
+				element.classList.add('is_fixed');
+			}
+
+		});
+
+		updateProperty(document.body, '--height-top', topBar + 'px');
+		updateProperty(document.body, '--height-bottom', bottomBar + 'px');
 
 		if (header) {
 
 			var rect = header.getBoundingClientRect();
 
 			if (rect.y > 0) {
-				document.body.style.setProperty('--header-offset', rect.y + 'px');
+				updateProperty(document.body, '--header-offset', rect.y + 'px');
 			} else {
-				document.body.style.setProperty('--header-offset', '0px');
+				updateProperty(document.body, '--header-offset', '0px');
 			}
 
 		}
 
 	}
 
-	window.addEventListener('scroll', handleScroll);
+	function updateProperty(element, property, value) {
+		if (element.style.getPropertyValue(property) !== value) {
+			element.style.setProperty(property, value);
+		}
+	}
 
-	setTimeout(handleScroll, 100);
+	window.addEventListener('scroll', handleScroll);
+	window.addEventListener('load', handleScroll);
+
+	handleScroll();
 
 });

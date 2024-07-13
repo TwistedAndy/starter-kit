@@ -85,7 +85,7 @@ section {
 	padding: calc(var(--gap-section-top) + var(--gap-section-shift)) var(--gap-aside) var(--gap-section-bottom);
 	background-color: var(--color-section);
 	color: var(--color-text);
-	scroll-margin-top: calc(var(--height-fixed) + var(--gap-section) - var(--gap-section-top));
+	scroll-margin-top: calc(var(--height-top) + var(--gap-section) - var(--gap-section-top));
 	--gap-section-bottom: var(--gap-section);
 
 	&:first-of-type {
