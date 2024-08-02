@@ -21,7 +21,7 @@ jQuery(document).on('tw_init', '.header_box', function(e, $) {
 		e.preventDefault();
 	});
 
-	wrapper.nextAll('section').find('.fixed').first().attr('id', 'contents');
+	wrapper.nextAll('section').first().attr('id', 'contents');
 
 	wrapper.on('click', function(e) {
 		if (e.target === this) {
