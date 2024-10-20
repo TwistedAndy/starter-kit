@@ -1,8 +1,4 @@
-jQuery(document).on('tw_init', function(e, $) {
-
-	if (runOnce(this, 'sticky')) {
-		return;
-	}
+Twee.addModule('sticky', 'html', function($) {
 
 	let elements = $('.header_box.is_sticky'),
 		header = $('.header_box').get(0);
