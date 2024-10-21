@@ -1,6 +1,6 @@
 Twee.addModule('sticky', 'html', function($) {
 
-	let elements = $('.header_box.is_sticky'),
+	let elements = document.querySelectorAll('.header_box.is_sticky'),
 		header = $('.header_box').get(0);
 
 	function handleScroll() {
@@ -10,10 +10,21 @@ Twee.addModule('sticky', 'html', function($) {
 			itemsTop = [],
 			itemsBottom = [];
 
-		elements.each(function() {
+		if (document.body.classList.contains('admin-bar')) {
 
-			let element = this,
-				styles = window.getComputedStyle(element, null),
+			let width = window.innerWidth;
+
+			if (width <= 782 && width >= 600) {
+				topBar += 46;
+			} else if (width > 782) {
+				topBar += 32;
+			}
+
+		}
+
+		elements.forEach(function(element) {
+
+			let styles = window.getComputedStyle(element, null),
 				position = styles.getPropertyValue('position'),
 				bottom = styles.getPropertyValue('bottom'),
 				top = styles.getPropertyValue('top');
@@ -24,7 +35,7 @@ Twee.addModule('sticky', 'html', function($) {
 
 			let data = {
 				element: element,
-				rect: this.getBoundingClientRect(),
+				rect: element.getBoundingClientRect(),
 				top: false,
 				bottom: false
 			};
