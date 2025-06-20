@@ -1,5 +1,5 @@
 let gulp = require('gulp'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-sass/legacy'),
 	notify = require('gulp-notify'),
 	concat = require('gulp-concat'),
 	plumber = require('gulp-plumber'),
