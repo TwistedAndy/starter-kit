@@ -34,13 +34,12 @@
 .buttons {
 	@extend %buttons;
 
-	.items + & {
+	.items + &, .contents + & {
 		text-align: center;
+	}
 
-		.button {
-			margin-top: var(--gap-contents);
-		}
-
+	.items + &:has(.button:not(.is_hidden)) {
+		margin-top: var(--gap-contents);
 	}
 
 }
@@ -55,6 +54,10 @@
 
 .items {
 	@extend %items;
+
+	.item {
+		@extend %item;
+	}
 
 	&_1 {
 		--width-item: 100%;
@@ -138,7 +141,7 @@
 	padding: 5px 15px;
 	border-radius: 0;
 	background: var(--color-primary);
-	color: var(--color-base);
+	color: var(--color-primary-alt);
 	font-size: rem(16);
 	font-weight: 500;
 	line-height: rem(20);
