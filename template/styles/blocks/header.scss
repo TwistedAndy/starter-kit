@@ -315,7 +315,7 @@
 		.navigation {
 			display: flex;
 			position: fixed;
-			top: calc(var(--height-header) + var(--height-bar) + var(--offset-header));
+			top: calc(var(--height-header) + var(--offset-header));
 			right: 0;
 			bottom: 0;
 			left: auto;
