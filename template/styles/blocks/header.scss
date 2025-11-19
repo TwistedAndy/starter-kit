@@ -238,13 +238,13 @@
 
 				&.active > a {
 					background-color: var(--color-primary);
-					color: var(--color-primary-alt);
+					color: var(--color-primary-text);
 				}
 
 				@include hover {
 					&:hover > a {
 						background-color: var(--color-primary);
-						color: var(--color-primary-alt);
+						color: var(--color-primary-text);
 					}
 				}
 
