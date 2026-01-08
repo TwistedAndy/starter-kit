@@ -1,9 +1,5 @@
 .media_box {
 
-	.contents {
-		@extend %contents;
-	}
-
 	.media {
 		display: block;
 		position: relative;
@@ -50,10 +46,6 @@
 				flex-direction: row;
 			}
 
-			.wrapper {
-				padding: 0 0 0 var(--gap-section-inner);
-			}
-
 			.media {
 				right: auto;
 				left: 0;
@@ -64,8 +56,27 @@
 		&.is_full {
 			--gap-section-top: var(--gap-section);
 
+			&.is_reversed {
+
+				.media {
+					border-radius: 0 var(--radius-regular) var(--radius-regular) 0;
+				}
+
+			}
+
+			.fixed {
+				justify-content: flex-end;
+				min-height: 240px;
+			}
+
+			.wrapper {
+				flex-grow: unset;
+				width: calc(50% - var(--gap-section-inner));
+			}
+
 			.media {
 				position: absolute;
+				border-radius: 0;
 
 				img {
 					display: block;
@@ -82,21 +93,26 @@
 
 			&.is_reversed {
 
-				.media img {
+				.media {
 					border-radius: var(--radius-regular) 0 0 var(--radius-regular);
+				}
+
+				.wrapper {
+					padding: 0 var(--gap-section-inner) 0 0;
 				}
 
 			}
 
+			.wrapper {
+				padding: 0 0 0 var(--gap-section-inner);
+			}
+
 			.fixed {
+				border-radius: var(--radius-regular);
 				background-color: var(--color-background);
 			}
 
-			.wrapper {
-				padding: 0 var(--gap-section-inner);
-			}
-
-			.media img {
+			.media {
 				border-radius: 0 var(--radius-regular) var(--radius-regular) 0;
 			}
 
@@ -116,36 +132,39 @@
 			position: static;
 			flex-direction: row-reverse;
 			align-items: center;
+			justify-content: center;
+			gap: var(--gap-section-inner);
 		}
 
 		.wrapper {
 			display: block;
-			align-self: center;
-			width: 50%;
-			padding: 0 var(--gap-section-inner) 0 0;
-			--width-contents: #{rem(600)};
+			flex-grow: 1;
+			min-width: 0;
+			--width-contents: #{rem(1000)};
+
+			&:first-child {
+				width: auto;
+				padding: 0;
+				text-align: center;
+				--width-contents: #{rem(800)};
+			}
+
+		}
+
+		.contents {
+			margin: 0;
+			text-align: inherit;
 		}
 
 		.media {
 			top: 0;
 			right: 0;
 			bottom: 0;
+			overflow: hidden;
 			flex-grow: 0;
 			flex-shrink: 0;
 			width: 50%;
-
-			&.is_video {
-
-				&:before {
-					border-radius: var(--radius-regular);
-				}
-
-			}
-
-			img {
-				border-radius: var(--radius-regular);
-			}
-
+			border-radius: var(--radius-regular);
 		}
 
 	}
@@ -161,7 +180,7 @@
 		.media {
 			position: relative;
 			width: auto;
-			margin: 0 calc(-1 * var(--gap-section-side)) calc(var(--gap-contents) + 5px);
+			margin: calc(-1 * var(--gap-section-top)) calc(-1 * var(--gap-section-side)) var(--gap-contents);
 
 			&:last-child {
 				margin-bottom: 0;

@@ -1,11 +1,6 @@
 .posts_box {
 	--width-item: 33.333%;
 
-	.contents {
-		@extend %contents;
-	}
-
-
 	.item {
 		align-items: flex-start;
 
