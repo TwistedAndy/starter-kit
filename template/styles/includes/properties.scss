@@ -169,11 +169,9 @@
 	--height-header: #{rem(80)};
 	--height-image: 100%;
 	--height-icon: #{rem(16)};
-	--height-logo: 34px;
 	--height-bar: 0px;
 
 	--width-icon: var(--height-icon);
-	--width-logo: 170px;
 	--width-item: 25%;
 	--width-scrollbar: 15px;
 	--width-content: #{rem(640)};
@@ -189,7 +187,6 @@
 
 	/* Mask Image */
 	--mask-image: none;
-	--mask-logo: url(../../images/ico_logo.svg);
 
 	@include desktop_small {
 

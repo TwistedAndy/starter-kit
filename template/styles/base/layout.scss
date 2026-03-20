@@ -143,7 +143,7 @@ section {
 		--color-background: var(--theme-text);
 		--color-text: #{rgbo(--theme-white, 90%)};
 		--color-muted: #{rgbo(--theme-white, 80%)};
-		--color-heading: #{--theme-white};
+		--color-heading: var(--theme-white);
 		--color-border: #{rgbo(--theme-white, 10%)};
 		--color-field: #{rgbo(--theme-white, 10%)};
 		--color-icon: var(--theme-white);
