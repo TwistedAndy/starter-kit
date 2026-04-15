@@ -162,6 +162,7 @@
 	--offset-section-bottom: 0px;
 	--offset-header: 0px;
 	--offset-scroll: 0px;
+	--offset-screen: calc(var(--height-header) + var(--height-bar));
 
 	/* Dimensions */
 	--height-button: #{rem(50)};
