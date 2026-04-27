@@ -1,6 +1,6 @@
-Twee.addModule('better', 'section', function($, wrapper) {
+Twee.addModule('picture', 'section', function($, wrapper) {
 
-	let better = BetterPicture(),
+	let bigger = BiggerPicture(),
 		selectors = 'a[href*=".png"], a[href*=".jpg"], a[href*=".jpeg"], a[href*=".gif"], a[href*=".webp"], a[href*="youtube.com"], a[href*="youtu.be"], a[href*="vimeo.com"], a[href*=".mp4"]';
 
 	wrapper.on('click', selectors, function(e) {
@@ -20,18 +20,18 @@ Twee.addModule('better', 'section', function($, wrapper) {
 				let slides = embla.slideNodes(),
 					index = slides.indexOf(activeItem.element);
 
-				if (index > -1 && embla.slidesNotInView().indexOf(index) > -1) {
-					embla.scrollTo(index);
+				if (index > -1 && embla.slidesInView().indexOf(index) === -1) {
+					embla.goTo(index);
 				}
 
 			}
 		};
 
-		better.open(args);
+		bigger.open(args);
 
 		e.preventDefault();
 		e.stopPropagation();
 
 	});
 
-}, ['BetterPicture']);
+}, ['BiggerPicture']);
