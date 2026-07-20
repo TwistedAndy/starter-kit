@@ -28,14 +28,12 @@
 	&:after {
 		content: '';
 		display: block;
-		position: relative;
 		flex-grow: 0;
 		flex-shrink: 0;
 		width: 10px;
-		height: 6px;
-		margin-left: 6px;
+		height: 8px;
 		background-color: currentColor;
-		-webkit-mask: url(../images/ico_select.svg) 50% 50% / contain no-repeat;
+		-webkit-mask: url(../images/ico_arrow_down.svg) 50% 50% / contain no-repeat;
 	}
 
 }

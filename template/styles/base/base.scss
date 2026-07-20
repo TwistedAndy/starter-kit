@@ -1,6 +1,7 @@
 @import '../elements/buttons';
 @import '../elements/contents';
 @import '../elements/content';
+@import '../elements/toggle';
 @import '../elements/hidden';
 @import '../elements/items';
 @import '../elements/play';
@@ -53,11 +54,14 @@
 		padding-top: 5px;
 	}
 
-	.items + &, .contents + & {
+	.items + &,
+	.embla + &,
+	.contents + & {
 		text-align: center;
 	}
 
-	.items + &:has(.button:not(.is_hidden)) {
+	.items + &:has(.button:not(.is_hidden)),
+	.embla + &:has(.button:not(.is_hidden)) {
 		margin-top: var(--gap-contents);
 	}
 
@@ -165,6 +169,13 @@
 
 .content {
 	@extend %content;
+
+	& + .toggle {
+		@extend %toggle;
+		width: auto;
+		margin: calc(var(--gap-content) - var(--gap-contents)) 0 0;
+	}
+
 }
 
 .items {

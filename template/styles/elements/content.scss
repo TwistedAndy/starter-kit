@@ -1,6 +1,7 @@
 %content {
 	display: block;
 	position: relative;
+	max-height: var(--height-content);
 	margin: -5px 0 calc(var(--gap-contents) - 5px);
 	color: var(--color-text);
 	font-size: var(--size-content);
@@ -9,6 +10,21 @@
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	&.is_collapsed {
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 0.75em);
+	}
+
+	&.is_compact {
+		overflow: hidden;
+		--height-content: 7.5em;
+	}
+
+	&.is_expanded {
+		overflow: visible;
+		--height-content: auto;
 	}
 
 	@include clear();
