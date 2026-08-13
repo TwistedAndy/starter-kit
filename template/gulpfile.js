@@ -1,14 +1,21 @@
 let gulp = require('gulp'),
-	sass = require('gulp-sass/legacy'),
+	gulpSass = require('gulp-sass'),
 	notify = require('gulp-notify'),
 	concat = require('gulp-concat'),
 	plumber = require('gulp-plumber'),
 	globalize = require('gulp-sass-glob'),
 	sourcemaps = require('gulp-sourcemaps'),
-	uglify = require('gulp-uglify-es').default;
+	uglify = require('gulp-uglify-es').default,
+	sass;
 
-if (typeof sass.compiler === 'undefined') {
-	sass = sass(require('node-sass'));
+try {
+	sass = gulpSass(require('sass'));
+} catch (sassError) {
+	try {
+		sass = require('gulp-sass/legacy')(require('node-sass'));
+	} catch (nodeSassError) {
+		throw new Error('No Sass compiler found. Install either "sass" or "node-sass".');
+	}
 }
 
 let folders = {
@@ -41,9 +48,11 @@ let options = {
 		}) || null
 	},
 	sass: {
+		style: 'compressed',
 		outputStyle: 'compressed',
 		indentType: 'tab',
-		indentWidth: 1
+		indentWidth: 1,
+		silenceDeprecations: ['import']
 	},
 	sourcemaps: {
 		styles: {
