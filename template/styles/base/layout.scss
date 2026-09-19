@@ -14,6 +14,7 @@ html {
 }
 
 body {
+	--width-fixed-large: calc(100vw - var(--width-scrollbar));
 
 	&.is_locked {
 		overflow: hidden;
