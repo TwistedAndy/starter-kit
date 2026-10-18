@@ -24,6 +24,10 @@ body {
 
 }
 
+[id] {
+	scroll-margin-top: calc(var(--offset-scroll) + 10px);
+}
+
 .admin-bar {
 	--height-bar: 32px;
 
