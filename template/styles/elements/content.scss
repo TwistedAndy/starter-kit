@@ -12,17 +12,17 @@
 		margin-bottom: 0;
 	}
 
-	&.is_collapsed {
+	&.collapsed {
 		overflow: hidden;
 		-webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 0.75em);
 	}
 
-	&.is_compact {
+	&.content_compact {
 		overflow: hidden;
 		--height-content: 7.5em;
 	}
 
-	&.is_expanded {
+	&.expanded {
 		overflow: visible;
 		--height-content: auto;
 	}

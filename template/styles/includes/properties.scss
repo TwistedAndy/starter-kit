@@ -4,7 +4,7 @@
 	--font-main: Arial, sans-serif;
 	--font-heading: Arial, sans-serif;
 
-	/* Font Sizes */
+	/* Font sizes */
 	--size-huge: #{rem(64)};
 	--size-big: #{rem(56)};
 	--size-h1: #{rem(48)};
@@ -37,10 +37,11 @@
 	--line-button: #{rem(20)};
 	--line-field: #{rem(22)};
 
-	/* Theme Colors */
+	/* Theme colors */
 	--theme-black: #000000;
 	--theme-white: #FFFFFF;
 	--theme-background: #F5F5F5;
+	--theme-light: #E8E8E8;
 
 	--theme-text: #454548;
 	--theme-muted: #74787D;
@@ -65,10 +66,11 @@
 	--theme-error: #FF006F;
 	--theme-success: #198754;
 
-	/* Base Colors */
+	/* Contextual colors */
 	--color-base: var(--theme-white);
 	--color-section: var(--theme-white);
 	--color-background: var(--theme-background);
+	--color-light: var(--theme-light);
 
 	--color-text: var(--theme-text);
 	--color-muted: var(--theme-muted);
@@ -124,7 +126,7 @@
 	--shadow-regular: 0 5px 10px #{rgbo(--color-shadow, 15%)};
 	--shadow-large: 0 5px 40px #{rgbo(--color-shadow, 5%)};
 
-	/* Paddings & Margins */
+	/* Gaps */
 	--gap-card: 30px;
 	--gap-list: 12px;
 	--gap-button: 25px;
@@ -164,7 +166,7 @@
 	--offset-scroll: 0px;
 	--offset-screen: calc(var(--height-header) + var(--height-bar));
 
-	/* Dimensions */
+	/* Heights */
 	--height-button: #{rem(50)};
 	--height-field: var(--height-button);
 	--height-header: #{rem(80)};
@@ -173,6 +175,7 @@
 	--height-icon: #{rem(16)};
 	--height-bar: 0px;
 
+	/* Widths */
 	--width-icon: var(--height-icon);
 	--width-item: calc(100% / var(--columns-count));
 	--width-scrollbar: 15px;
@@ -183,14 +186,16 @@
 	--width-fixed-small: #{rem(1000)};
 	--width-fixed-large: calc(100vw - var(--width-scrollbar));
 
+	/* Columns */
+	--columns-count: 4;
+
+	/* Radii */
 	--radius-small: 5px;
 	--radius-regular: 10px;
 	--radius-large: 20px;
 
-	/* Mask Image */
+	/* Masks */
 	--mask-image: none;
-
-	--columns-count: 4;
 
 	@include desktop_small {
 
