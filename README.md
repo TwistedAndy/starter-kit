@@ -12,7 +12,7 @@ The approach is described in this article:
 - Every section of a page is a box: an element with one class that ends in `_box`, such as `.media_box`.
 - Each box has one stylesheet, `styles/blocks/media.scss`, and all its styles are under `.media_box`.
 - The elements inside a box have short classes, such as `.title`, `.items`, `.item` and `.button`.
-- A box takes `is_*` and `has_*` modifiers, such as `.is_dark` or `.has_no_top`. An inner element takes
+- A box takes `is_*` and `has_*` modifiers, such as `.is_dark` or `.has_top`. An inner element takes
   `<element>_<modifier>`, such as `.button_outline`, and plain states, such as `.active`.
 - Colors, sizes and spacing are CSS custom properties, declared in `styles/includes/properties.scss`.
 - Behavior is written in small modules, one for each box, with `Twee.addModule()`.

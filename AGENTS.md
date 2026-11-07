@@ -1,8 +1,6 @@
 # CSS_BOX instructions
 
-The directory that holds this `AGENTS.md` is the project root. All paths in this document are relative to it. The
-same rules apply to the WordPress theme that is built from this template. Its styles are in `assets/styles`, and its
-markup is in the PHP templates.
+The directory that holds this `AGENTS.md` is the project root. All paths in this document are relative to it. The same rules apply to the WordPress theme that is built from this template. Its styles are in `assets/styles`, and its markup is in the PHP templates.
 
 ## Core rules
 
@@ -22,8 +20,7 @@ Treat these as mandatory:
 ### Blocks
 
 - Every independent section or component uses a lowercase `<name>_box` class.
-- A box element is an element whose class ends in `_box`, such as `.media_box`. It is the wrapper and the namespace of
-  the elements inside it: their styles are scoped under its class.
+- A box element is an element whose class ends in `_box`, such as `.media_box`. It is the wrapper and the namespace of the elements inside it: their styles are scoped under its class.
 - The block class, file, and top-level SCSS selector must match:
 
   ```text
@@ -77,12 +74,9 @@ Use one canonical block as the basis and modify it. For example, reuse `.posts_b
   - layout: `.wrapper`, `.container`, `.fixed`, `.sidebar`.
 
   Use a plural for the wrapper of a set and the singular for each member, as `.items` and `.item`.
-- Write plain tags without classes where the tag already says what the element is: `h1` to `h6`, `p`, `em`, `strong`,
-  `ul`, `ol`, `li`, `a`, `blockquote`, `table`. Style them under the class of their parent, such as
-  `.details h3` or `.content p`.
+- Write plain tags without classes where the tag already says what the element is: `h1` to `h6`, `p`, `em`, `strong`, `ul`, `ol`, `li`, `a`, `blockquote`, `table`. Style them under the class of their parent, such as `.details h3` or `.content p`.
 - Do not add a class to a heading, `h1` to `h6`, unless it is strictly necessary.
-- Another element takes a class when it is necessary. For example, `<label class="label">`: some elements have no
-  `<label>`, but still need a caption that looks like one, so they take `.label` too.
+- Another element takes a class when it is necessary. For example, `<label class="label">`: some elements have no `<label>`, but still need a caption that looks like one, so they take `.label` too.
 - Do not repeat the block name in inner classes. Use `.pricing_box .title`, not `.pricing_title`, `.pricing__title`, or `.pricing-box__title`.
 
 ### Modifiers and states
@@ -91,7 +85,7 @@ A modifier or a state is a class beside the base class of an element. Its form d
 
 | Kind | On | Form | Examples |
 | --- | --- | --- | --- |
-| Box modifier | A box element | `is_<word>` for the kind, the scheme or the state of the block. `has_<word>` for what the block has, such as its content, spacing or border. | `.is_reversed`, `.is_dark`, `.is_sticky`, `.is_visible`, `.has_no_top`, `.has_border` |
+| Box modifier | A box element | `is_<word>` for the kind, the scheme or the state of the block. `has_<word>` for what the block has, such as its content, spacing or border. | `.is_reversed`, `.is_dark`, `.is_sticky`, `.is_visible`, `.has_top`, `.has_border` |
 | Element modifier | An inner element | `<element>_<modifier>`: the base class of the element, with the modifier after it. It changes the style or the behavior of the element. | `.button_outline`, `.items_3`, `.media_video`, `.contents_split`, `.content_compact` |
 | Element state | An inner element | One word that names the state, with no prefix. | `.active`, `.hidden`, `.loading`, `.opened`, `.collapsed`, `.expanded` |
 
@@ -107,27 +101,16 @@ A modifier or a state is a class beside the base class of an element. Its form d
 </section>
 ```
 
-- `is_*` and `has_*` go only on a box element. A plain state goes only on an inner element: `.modal_box.is_visible`,
-  but `.button.loading`. The `body` takes a plain state too, such as `.locked` while a modal is open.
+- `is_*` and `has_*` go only on a box element. A plain state goes only on an inner element: `.modal_box.is_visible`, but `.button.loading`. The `body` takes a plain state too, such as `.locked` while a modal is open.
 - A box element never takes a `box_*` class.
-- Keep as few modifiers as possible. Add a modifier or a state only when it is needed, and when it makes the code
-  simpler.
-- When most elements would share a modifier, make its style the default instead. Move the styles from the modifier to
-  the base class, and add a modifier only to the elements that differ. For example, most buttons are filled, so
-  `.button` is filled, and only the others take `.button_outline`.
-- A modifier needs at least two variants to choose between. When a block has only one kind of card, `class="items"`
-  is enough: the cards are the default look of its items.
-- A modifier is one word after `is_`, `has_` or the base class. Do not join several words, such as
-  `.items_featured_large`. Use two modifiers instead. Use a two-word modifier only when no short word describes it, as
-  for `.has_no_top` and `.has_top_half`.
+- Keep as few modifiers as possible. Add a modifier or a state only when it is needed, and when it makes the code simpler.
+- When most elements would share a modifier, make its style the default instead. Move the styles from the modifier to the base class, and add a modifier only to the elements that differ. For example, most buttons are filled, so `.button` is filled, and only the others take `.button_outline`.
+- A modifier needs at least two variants to choose between. When a block has only one kind of card, `class="items"` is enough: the cards are the default look of its items.
+- A modifier is one word after `is_`, `has_` or the base class. Do not join several words, such as `.items_featured_large`. Use two modifiers instead. Use a two-word modifier only when no short word describes it, as for `.has_no_top` and `.has_top_half`.
 - Keep the base class: `class="button button_outline"`, not `class="button_outline"`.
-- When every element in a set needs the same modifier, put it on the wrapper: `class="items items_cards"`, not
-  `item_card` on each `.item`.
-- `.carousel` is an exception. It is a common element with its own styles, and goes beside `.items`:
-  `class="items items_3 carousel"`.
-- Keep the classes of WordPress, WooCommerce, a plugin or a library, such as `.sub-menu`, `.gform_wrapper` and
-  `.embla_container`, and the classes that an existing script relies on. They may stay at the top level of a
-  stylesheet, outside a box.
+- When every element in a set needs the same modifier, put it on the wrapper: `class="items items_cards"`, not `item_card` on each `.item`.
+- `.carousel` is an exception. It is a common element with its own styles, and goes beside `.items`: `class="items items_3 carousel"`.
+- Keep the classes of WordPress, WooCommerce, a plugin or a library, such as `.sub-menu`, `.gform_wrapper` and `.embla_container`, and the classes that an existing script relies on. They may stay at the top level of a stylesheet, outside a box.
 
 ### Element roles
 
@@ -165,8 +148,7 @@ Project-owned variables use lowercase kebab-case and a strict type-first grammar
 - Map theme constants to contextual `--color-*` variables in `styles/includes/properties.scss`, for example `--color-primary: var(--theme-primary)` and `--color-text: var(--theme-text)`.
 - Base styles, blocks, and elements should prefer `--color-*` variables for colors. Control-specific variables such as `--button-*` and `--field-*` may provide another semantic layer. Do not use `--theme-*` directly in ordinary selectors, except when an element intentionally needs a fixed source color that must not follow the current section theme; use the appropriate `--theme-*` constant only for that exception.
 - Override `--color-*`, not `--theme-*`, on a section or block. Descendants then inherit the local color scheme without changing the global palette.
-- A box with a color scheme of its own maps `--theme-*` to `--color-*` on its root. Its elements then use only
-  `--color-*`. For example, a dark footer sets `--color-text: var(--theme-secondary-text)`.
+- A box with a color scheme of its own maps `--theme-*` to `--color-*` on its root. Its elements then use only `--color-*`. For example, a dark footer sets `--color-text: var(--theme-secondary-text)`.
 - Use `primary`, `secondary`, and `tertiary` as the standard accent-color roles. Each role may expose a base color, alternate/active color, and readable text color through `-alt` and `-text`, for example `--theme-primary`, `--theme-primary-alt`, `--theme-primary-text` and their `--color-*` mappings. Do not create competing accent names when these roles are sufficient.
 - For fixed or repeated style values, reuse an existing CSS custom property for colors, shadows, mask images, offsets, radii, typography, and controls instead of writing a literal. Content-driven per-instance values may use inline custom properties when the integration requires them.
 - A value used in one place stays a literal at that place. Do not add a property for it.
@@ -232,25 +214,21 @@ The usual order inside `.fixed` is `.contents`, `.items`, then `.buttons`. Omit 
 - `.items` is the wrapper for repeatable content; its repeated children are normally direct `.item` elements.
 - Put `.items_xxx` modifiers on `.items`, never on the block or each item. Use only variants implemented by the repository.
 - `.items` sets `--width-item: calc(100% / var(--columns-count))`.
-  - `.items_1` through `.items_6` set `--columns-count` on a wide screen. `.items_5` and `.items_6` show four columns
-    below `desktop_large`.
-  - For other columns, set `--columns-count` on the `.items` of the block. Set it again in a media query for fewer
-    columns on a smaller screen.
+  - `.items_1` through `.items_6` set `--columns-count` on a wide screen. `.items_5` and `.items_6` show four columns below `desktop_large`.
+  - For other columns, set `--columns-count` on the `.items` of the block. Set it again in a media query for fewer columns on a smaller screen.
 - Add an `.items_*` mode only when the same `.items` is shown in more than one way. A content label alone is not a mode.
 - Add `.carousel` to the same `.items` wrapper when the collection is a slider: `class="items items_3 carousel"`. Follow the existing carousel/Embla markup and script conventions.
 - Use a block-local `.card` only for a deliberate non-standard card or menu-tile structure. Do not create a second global card/grid system.
 
 ### Section themes and boundaries
 
-- A section has one `_box` class, and may also have the global section modifiers below. They are defined in
-  `styles/base/layout.scss`.
+- A section has one `_box` class, and may also have the global section modifiers below. They are defined in `styles/base/layout.scss`.
 - Use a global `.is_<scheme>` class for color schemes, such as `.is_dark` or `.is_light`. A scheme overrides contextual `--color-*` variables on the section and lets descendants inherit them; it must not redefine global `--theme-*` constants. If a required scheme does not exist, define it once in `styles/base/layout.scss`.
 - Use `.has_no_top` and `.has_no_bottom` to remove edge spacing.
 - Use `.has_top` and `.has_bottom` for the full spacing, where a section would have none.
 - Use `.has_top_half` and `.has_bottom_half` for half spacing; do not emit `.has_half_top` or `.has_half_bottom` unless those aliases first exist in `styles/base/layout.scss`.
 - Use `.has_border` for the border between sections. Do not reimplement the same boundary in individual blocks.
-- In the theme, `tw_block_attributes()` writes these classes from the settings of a block: the background, the top and
-  bottom spacing, and the border.
+- In the theme, `tw_block_attributes()` writes these classes from the settings of a block: the background, the top and bottom spacing, and the border.
 
 ### Spacing and variable ownership
 
@@ -258,7 +236,7 @@ Use the existing spacing and sizing system. Before writing a literal for `gap`, 
 
 | Relationship | Owner | Use |
 | --- | --- | --- |
-| Section top/bottom padding | Section/block root | `--gap-section`, `--gap-section-top`, `--gap-section-bottom`, the `has_*` spacing modifiers. |
+| Section top/bottom padding | Section/block root | `--gap-section`, `--gap-scale-top` and `--gap-scale-bottom` (multipliers of `--gap-section`), `--gap-section-top` and `--gap-section-bottom` (the computed lengths, read-only), the `has_*` spacing modifiers. |
 | Section side padding | Section/block root | `--gap-section-side`; `.fixed` should not duplicate it. |
 | Content width | `.fixed` | `--width-fixed` or a justified scoped `max-width`. |
 | Major section parts | `.contents`, `.items`, `.buttons` relationship | `--gap-contents`. |
@@ -289,8 +267,7 @@ Keep project-wide tokens in shared properties, block-wide values on `.name_box`,
 - Wrap almost every ordinary image in an `.image` link or `div`; put `.image` on the wrapper.
 - For a fixed aspect ratio, use `.image { @extend %image; }` inside the block and set percentage-based `--height-image` on the block or image.
 - Include useful `alt`, `width`, and `height` attributes. Use empty `alt` only for decorative images.
-- The element that an icon belongs to draws it as its `::before` or `::after`. The icon is a mask of the image in
-  `--mask-image`, in `currentColor`. It has no empty element of its own.
+- The element that an icon belongs to draws it as its `::before` or `::after`. The icon is a mask of the image in `--mask-image`, in `currentColor`. It has no empty element of its own.
   - A button draws it with `%button_icon_before` or `%button_icon_after`.
   - The stylesheet of the element sets `--mask-image` by its class, such as `.button_arrow`.
   - An icon that comes from data is an inline property instead. The theme writes it with `tw_image_attribute()`.
@@ -316,8 +293,7 @@ Keep menu markup close to WordPress output:
 - `.menu` is the top-level list.
 - `.submenu` belongs to the parent `li` that owns children.
 - `.sub-menu` belongs to the nested `ul` at every depth. WordPress writes it.
-- `.active` belongs to the `li` of the current page, and to every `li` above it. The theme writes it in place of the
-  `current-*` classes of WordPress.
+- `.active` belongs to the `li` of the current page, and to every `li` above it. The theme writes it in place of the `current-*` classes of WordPress.
 - On a small screen, the script adds `.opened` to the `li` whose submenu is open, and `.parent` to every `li` above it.
 - In this project, menu styles belong under `.header_box` in `styles/blocks/header.scss` because `.navigation` is owned by the header.
 - Preserve menu IDs, matching `aria-controls`, and JavaScript state hooks.
@@ -369,27 +345,21 @@ Place one block in one file and keep all block-specific code beneath its root:
 - Inside a block, nest two or three levels deep. Use four only for a solid reason.
 - A child selector names its parent: `& > .caption`, not `> .caption`.
 - Nest the rules of an element inside it: `.link { .title {} .text {} }`, not `.link .title` and `.link .text`.
-- Nest the state of a parent the same way: `&.opened { .item {} }`, not `&.opened .item`. A child selector may
-  follow a state: `&:hover > .buttons`.
+- Nest the state of a parent the same way: `&.opened { .item {} }`, not `&.opened .item`. A child selector may follow a state: `&:hover > .buttons`.
 - A comment is at most two lines, above what it explains.
-- There is no `!important`, except to override the inline styles of WordPress or a plugin. A rule that has to win gets
-  a selector that wins.
+- There is no `!important`, except to override the inline styles of WordPress or a plugin. A rule that has to win gets a selector that wins.
 
 ### Responsive rules
 
 - Prefer the existing named mixins: `desktop_large`, `desktop_small`, `tablet_large`, `tablet_small`, `phone_large`, and `phone_small`.
 - Use `media_min($breakpoint)` only for intentional min-width behavior, with an existing breakpoint variable.
-- Write a hover style inside `@include hover`. Write what a screen without hover needs, such as a touch screen, inside
-  `@include hoverless`.
-- Do not introduce raw pixel breakpoints when a project mixin or variable represents the boundary. The breakpoints of
-  the WordPress admin bar, 782 and 600, are the exception.
+- Write a hover style inside `@include hover`. Write what a screen without hover needs, such as a touch screen, inside `@include hoverless`.
+- Do not introduce raw pixel breakpoints when a project mixin or variable represents the boundary. The breakpoints of the WordPress admin bar, 782 and 600, are the exception.
 - Override the smallest relevant variables/rules inside the owning block.
 
 ### JavaScript modules
 
-Behavior is written in modules. A module is a function that runs once for each element that matches its selector.
-The loader, `Twee`, runs the modules when the page loads. It is `scripts/app.js` in the template, and the plugin
-`assets/plugins/app` in the theme.
+Behavior is written in modules. A module is a function that runs once for each element that matches its selector. The loader, `Twee`, runs the modules when the page loads. It is `scripts/app.js` in the template, and the plugin `assets/plugins/app` in the theme.
 
 ```js
 Twee.addModule('faq', '.faq_box', function($, wrapper) {
@@ -408,11 +378,9 @@ Twee.addModule('faq', '.faq_box', function($, wrapper) {
 `Twee.addModule(key, selector, callback, deps, multiple)` takes these arguments:
 
 - `key` is a unique name of the module. Name it after the behavior, not the page, such as `faq` or `carousel`.
-- `selector` is the element that the module is bound to: a `_box` root, a few roots that share the same markup, or an
-  element such as `.content > table`. A global behavior is bound to `html`, and runs once for the page.
+- `selector` is the element that the module is bound to: a `_box` root, a few roots that share the same markup, or an element such as `.content > table`. A global behavior is bound to `html`, and runs once for the page.
 - `callback` receives jQuery as `$` and the element, wrapped in jQuery. `this` is the element itself.
-- `deps` lists what the module needs first: the keys of other modules, such as `['sticky']`, or the names of global
-  variables that a library defines, such as `EmblaCarousel`. The module waits until each one exists.
+- `deps` lists what the module needs first: the keys of other modules, such as `['sticky']`, or the names of global variables that a library defines, such as `EmblaCarousel`. The module waits until each one exists.
 - `multiple` lets the module run again on an element that it has already run on. It is `false` by default.
 
 After a module runs on an element, the loader triggers `twee_init_<key>` on that element.
@@ -420,38 +388,27 @@ After a module runs on an element, the loader triggers `twee_init_<key>` on that
 Write a module by these rules:
 
 - Keep one behavior in one module and one module in one file, `scripts/<key>.js`.
-- Scope queries and events to the bound element: `$('.item', wrapper)` and `wrapper.on('click', '.title', …)`. Do
-  not query the whole document for the behavior of a block.
-- Bind a global behavior to `html`, and still delegate its events to specific elements, such as
-  `wrapper.on('click', '[data-modal]', …)`.
-- Set the state of a box with `is_*`, and the state of an inner element with a plain word, as "Modifiers and states"
-  says: `wrapper.addClass('is_menu')`, `button.addClass('loading')`.
-- Read the behavior of an element from stable `data-*` attributes, such as `data-modal` or `data-loader`, not from its
-  style classes.
-- Take values from PHP from the object that the theme passes to the scripts, `tw_template`, such as
-  `tw_template.ajaxurl`, `tw_template.nonce` and `tw_template.lang_more`. Do not write URLs or visible text into a
-  script.
+- Scope queries and events to the bound element: `$('.item', wrapper)` and `wrapper.on('click', '.title', …)`. Do not query the whole document for the behavior of a block.
+- Bind a global behavior to `html`, and still delegate its events to specific elements, such as `wrapper.on('click', '[data-modal]', …)`.
+- Set the state of a box with `is_*`, and the state of an inner element with a plain word, as "Modifiers and states" says: `wrapper.addClass('is_menu')`, `button.addClass('loading')`.
+- Read the behavior of an element from stable `data-*` attributes, such as `data-modal` or `data-loader`, not from its style classes.
+- Take values from PHP from the object that the theme passes to the scripts, `tw_template`, such as `tw_template.ajaxurl`, `tw_template.nonce` and `tw_template.lang_more`. Do not write URLs or visible text into a script.
 - Use the helpers of `Twee` instead of writing new ones:
   - `Twee.debounce(callback, delay)` and `Twee.throttle(callback, limit)` for input, scroll and resize;
   - `Twee.lockScroll()` and `Twee.unlockScroll()` for a modal or a menu over the page;
   - `Twee.runOnce(element, slug)` for code that must run once for an element outside a module;
   - `Twee.setCookie()` and `Twee.getCookie()`.
-- After a script adds markup to the page, such as the items that the loader brings, run the modules on it:
-  `Twee.runModules(wrapper)`.
-- Let modules talk through jQuery events on the element they share, not through global variables. The existing events
-  are:
+- After a script adds markup to the page, such as the items that the loader brings, run the modules on it: `Twee.runModules(wrapper)`.
+- Let modules talk through jQuery events on the element they share, not through global variables. The existing events are:
   - `open` and `close` on a `.modal_box`;
   - `reset` and `loaded` on the section of the loader;
   - `form_success` and `form_error` on a form.
-- Listen to the events of WordPress, WooCommerce and plugins where they are triggered, such as
-  `$(document.body).on('updated_cart_totals', …)`.
+- Listen to the events of WordPress, WooCommerce and plugins where they are triggered, such as `$(document.body).on('updated_cart_totals', …)`.
 
 ### Script files
 
-- The modules in `scripts/` are joined into one file, `build/scripts.js`, which every page loads. Run `npm run
-  scripts` after a change, in the template or in the `assets` folder of the theme.
-- A module that only some pages need, or that needs a library, is a plugin in the theme: a folder in
-  `assets/plugins/<name>/`. Its `index.php` returns its files and what they depend on:
+- The modules in `scripts/` are joined into one file, `build/scripts.js`, which every page loads. Run `npm run scripts` after a change, in the template or in the `assets` folder of the theme.
+- A module that only some pages need, or that needs a library, is a plugin in the theme: a folder in `assets/plugins/<name>/`. Its `index.php` returns its files and what they depend on:
 
   ```php
   return [
@@ -463,11 +420,9 @@ Write a module by these rules:
   ];
   ```
 
-  The template that shows the markup loads the plugin: `tw_asset_enqueue('embla')`. The plugin is loaded only on the
-  pages that use it.
+  The template that shows the markup loads the plugin: `tw_asset_enqueue('embla')`. The plugin is loaded only on the pages that use it.
 - Keep the files of a library as they are. Write the module that uses the library in a file of its own beside them.
-- In the theme, `functions.php` registers the scripts with `tw_asset_register()`. Its `localize` function returns the
-  values of `tw_template`. A new value that a script needs from PHP is added there.
+- In the theme, `functions.php` registers the scripts with `tw_asset_register()`. Its `localize` function returns the values of `tw_template`. A new value that a script needs from PHP is added there.
 
 ## General recommendations
 
